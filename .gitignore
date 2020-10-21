@@ -1,5 +1,6 @@
-.bsp
-.github
-.idea
-project
-target
+/.bsp/
+/.github/
+/.idea/
+/project/
+/target/
+
