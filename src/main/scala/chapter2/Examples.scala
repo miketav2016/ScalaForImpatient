@@ -1,5 +1,8 @@
 package chapter2
 
+import scala.io.StdIn
+import scala.util.Try
+
 object Examples extends App {
 
   //  val x: Int = scala.io.StdIn.readInt()
@@ -8,7 +11,8 @@ object Examples extends App {
   val tapeAny: Any = if (x > 0) 1 else () //common supper Type
   println(s"result: $s")
   if (x > 0) 1 else if (x == 0) {
-    print("used semicolon"); 0
+    print("used semicolon");
+    0
   } else -1
 
   val s0, v0, a0 = 10
@@ -30,7 +34,7 @@ object Examples extends App {
   val str = "Hello"
   var sum = 0
   for (i <- 0 to str.length - 1) {
-//  for (i <- 0 until str.length) {
+    //  for (i <- 0 until str.length) {
     sum += str(i)
     println(sum)
   }
@@ -50,5 +54,64 @@ object Examples extends App {
   for (i <- 0 to 1; c <- "Hello") yield (c + i).toChar
   // YieldsVector('H', 'e', 'l', 'l', 'o', 'I', 'f', 'm', 'm', 'p')
 
+  //Function
+  def abs(arg: Double) = if (arg >= 0) arg else -arg
 
+  def fac(n: Int) = {
+    var r = 1
+    for (i <- 1 to n) r *= i
+    r
+  }
+
+  def facRec(n: Int): Int = n match {
+    case _ if n < 0 => println("Error negative input"); 0
+    case 0 => 1
+    case 1 => 1
+    case _ => n * facRec(n - 1)
+  }
+
+  println(s"Fac 10 = ${fac(10)}")
+  println(s"facRec 10 = ${facRec(10)}")
+  println(s"facRec -10 = ${facRec(-10)}")
+
+  // this is the procedure(return unit)
+  def mySum(args: Int*): Unit = {
+    val sum1 = args.foldLeft(0)(_ + _)
+    val sum2 = args.sum
+    var sum = 0
+    for (x <- args) {
+      sum += x
+    }
+    println(s"Result = $sum1   ${(sum1 == sum2) == (sum == sum1)}")
+  }
+
+  mySum(10, 23, 3256, 347, 1245, 0)
+  mySum(1 to 100: _*) // make range to sequence
+  // this is the function(return same)
+  def mySumRec(args: Int*): Int = {
+    if (args.isEmpty) {
+      0
+    } else {
+      args.head + mySumRec(args.tail: _*)
+    }
+  }
+
+  println(mySumRec(1 to 1000: _*))
+
+  lazy val noUsed: Int = -1
+  lazy val usedInt: Double = math.pow(2, 10) // calculate only when will be called
+  def exceptionExample(i: Int): Unit = {
+    i match {
+      case num if num < 0 => throw new IllegalArgumentException("input is negative")
+      case _ => println("Win")
+    }
+  }
+
+  val result =
+    for (a <- Try {StdIn.readLine("a: ").toInt};
+         b <- Try {StdIn.readLine("b: ").toInt}
+         )
+      yield a / b
+  //  println(s"div a/b = ${result.get}") // worst
+  result.foreach(i => println(s"div a/b = $i")) // better
 }
