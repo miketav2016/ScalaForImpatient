@@ -3,7 +3,7 @@ package chapter2
 import scala.io.StdIn
 import scala.util.Try
 
-object Examples extends App {
+object ExamplesStructuresFunctions extends App {
 
   //  val x: Int = scala.io.StdIn.readInt()
   val x = 10
