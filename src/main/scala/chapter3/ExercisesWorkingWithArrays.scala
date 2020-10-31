@@ -61,9 +61,18 @@ object ExercisesWorkingWithArrays extends App {
   //5
   val dArray = new Array[Double](10)
   for (i <- dArray.indices) yield dArray(i) += (2 * nextGaussian() - 1).round
-  println(dArray.mkString("Array(", ", ", ")"))
-  println("average " + dArray.sum / dArray.length)
+  val dArrayM = Array.fill(20)(Random.between(0, 10))
+  println(dArrayM.mkString("Array(", ", ", ")"))
+  println("average " + dArrayM.sum / dArrayM.length)
   //6
+  println("Array")
+  val array6 = Array.fill(20)(Random.between(0, 10))
+  println(array6.mkString("Array(", ", ", ")"))
+  println(array6.reverse.mkString("Array(", ", ", ")"))
+  println("ArrayBuffer")
+  val arrayB6 = ArrayBuffer.fill(20)(Random.between(0, 10))
+  println(arrayB6)
+  println(arrayB6.reverse)
   //7
   //8
   //9
