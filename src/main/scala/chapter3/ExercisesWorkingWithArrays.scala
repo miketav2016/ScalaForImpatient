@@ -97,6 +97,12 @@ object ExercisesWorkingWithArrays extends App {
   val updateAB8 = for (i <- indNegH) yield arrayB8.remove(i)
   println(arrayB8)
   //9
+  val arrayB9 = ArrayBuffer.fill(10)(Random.between(-10, 10))
+  println(arrayB9)
+  val neg = arrayB9.zipWithIndex.filter(_._1 < 0).tail.reverse
+  println(neg)
+  neg.map { case (_, i) => arrayB9.remove(i) }
+  println(arrayB9)
   //10
   //11
 }
