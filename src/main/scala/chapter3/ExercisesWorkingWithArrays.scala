@@ -1,9 +1,8 @@
 package chapter3
 
-import scala.:+
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
-import scala.util.Random.{nextDouble, nextGaussian}
+import scala.util.Random.nextGaussian
 
 object ExercisesWorkingWithArrays extends App {
   //1
@@ -79,6 +78,24 @@ object ExercisesWorkingWithArrays extends App {
   println(array7.distinct.mkString("Array(", ", ", ")"))
   println(array7.distinct.product)
   //8
+  val arrayB8 = ArrayBuffer.fill(10)(Random.between(-10, 10))
+  println(arrayB8)
+  /*var first = true
+  var length = arrayB8.length
+  var i = 0
+  while (i < length) {
+    if (arrayB8(i) >= 0) i += 1
+    else {
+      if (first) { first = false; i += 1 }
+      else { arrayB8.remove(i); length -= 1 }
+    }
+  }*/
+  val indNeg = ArrayBuffer[Int]()
+  for (i <- arrayB8.indices) yield if (arrayB8(i) < 0) indNeg += i
+  val indNegH = indNeg.tail.reverse
+  println(s"index neg elem : ${indNegH.mkString("",", ","")} ")
+  val updateAB8 = for (i <- indNegH) yield arrayB8.remove(i)
+  println(arrayB8)
   //9
   //10
   //11
