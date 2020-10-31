@@ -104,5 +104,7 @@ object ExercisesWorkingWithArrays extends App {
   neg.map { case (_, i) => arrayB9.remove(i) }
   println(arrayB9)
   //10
+  val timeZone = java.util.TimeZone.getAvailableIDs.filter(a => a.contains( "America/")).map(_.replace("America/", " "))
+  println(timeZone.mkString("Array(", ", ", ")"))
   //11
 }
