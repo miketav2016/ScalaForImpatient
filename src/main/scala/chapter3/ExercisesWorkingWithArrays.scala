@@ -3,6 +3,7 @@ package chapter3
 import scala.:+
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
+import scala.util.Random.{nextDouble, nextGaussian}
 
 object ExercisesWorkingWithArrays extends App {
   //1
@@ -56,8 +57,12 @@ object ExercisesWorkingWithArrays extends App {
     n11 += i
   }
   println("ex4  v1 " + (p ++ n11))
-  println("ex4  v2 "+ array4.sortBy(_ <= 0))
+  println("ex4  v2 " + array4.sortBy(_ <= 0))
   //5
+  val dArray = new Array[Double](10)
+  for (i <- dArray.indices) yield dArray(i) += (2 * nextGaussian() - 1).round
+  println(dArray.mkString("Array(", ", ", ")"))
+  println("average " + dArray.sum / dArray.length)
   //6
   //7
   //8
