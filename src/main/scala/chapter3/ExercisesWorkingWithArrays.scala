@@ -3,6 +3,8 @@ package chapter3
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
 import scala.util.Random.nextGaussian
+import java.awt.datatransfer._
+import java.util
 
 object ExercisesWorkingWithArrays extends App {
   //1
@@ -93,7 +95,7 @@ object ExercisesWorkingWithArrays extends App {
   val indNeg = ArrayBuffer[Int]()
   for (i <- arrayB8.indices) yield if (arrayB8(i) < 0) indNeg += i
   val indNegH = indNeg.tail.reverse
-  println(s"index neg elem : ${indNegH.mkString("",", ","")} ")
+  println(s"index neg elem : ${indNegH.mkString("", ", ", "")} ")
   val updateAB8 = for (i <- indNegH) yield arrayB8.remove(i)
   println(arrayB8)
   //9
@@ -104,7 +106,16 @@ object ExercisesWorkingWithArrays extends App {
   neg.map { case (_, i) => arrayB9.remove(i) }
   println(arrayB9)
   //10
-  val timeZone = java.util.TimeZone.getAvailableIDs.filter(a => a.contains( "America/")).map(_.replace("America/", " "))
+  val timeZone = java.util.TimeZone.getAvailableIDs.filter(a => a.contains("America/")).map(_.replace("America/", " "))
   println(timeZone.mkString("Array(", ", ", ")"))
-  //11
+  /*
+  11. Import java.awt.datatransfer._ and make an object of type SystemFlavorMap with the call
+        val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
+        Then call the getNativesForFlavor method with parameter
+        DataFlavor.imageFlavor and get the return value as a Scala buffer. (Why this obscure
+        class? It’s hard to find uses of java.util.List in the standard Java library.)
+        */
+  val flavors = SystemFlavorMap.getDefaultFlavorMap.asInstanceOf[SystemFlavorMap]
+  val flavorsGetImageFlavor: util.List[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
+  println(flavorsGetImageFlavor)
 }
