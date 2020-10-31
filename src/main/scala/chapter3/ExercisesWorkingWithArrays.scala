@@ -74,6 +74,9 @@ object ExercisesWorkingWithArrays extends App {
   println(arrayB6)
   println(arrayB6.reverse)
   //7
+  val array7 = Array.fill(20)(Random.between(0, 10))
+  println(array7.mkString("Array(", ", ", ")"))
+  println(array7.distinct.mkString("Array distinct(", ", ", ")"))
   //8
   //9
   //10
