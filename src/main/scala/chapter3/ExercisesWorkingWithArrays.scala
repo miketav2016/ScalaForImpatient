@@ -1,5 +1,6 @@
 package chapter3
 
+import scala.:+
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
 
@@ -27,26 +28,35 @@ object ExercisesWorkingWithArrays extends App {
   }
   println(array0)
   //3
-  val array1 = ArrayBuffer(1, 2, 3, 4, 5, 6, 7,8)
+  val array1 = ArrayBuffer(1, 2, 3, 4, 5, 6, 7, 8)
   println(array1)
   val newArr = for (i <- 1 to array1.length / 2 * 2 - 1 by 2;
-                                         j <- i - 1 to i) yield {
+                    j <- i - 1 to i) yield {
     if (i > j && (i - 1) == j) {
       array1(i)
     } else if (i == j) {
       array1(i - 1)
     }
   }
-  if (newArr.length != array1.length ) {
-    println( newArr ++ array1.reverse.take(1))
+  if (newArr.length != array1.length) {
+    println(newArr ++ array1.reverse.take(1))
   }
   println(array1)
-  val newArr1 = for (i <- 1 to  array1.length + 1 by 2 ;
-                     j <- i to i-1 by -1 if j < array1.length)
-    yield  array1(j)
-
+  val newArr1 = for (i <- 1 to array1.length + 1 by 2;
+                     j <- i to i - 1 by -1 if j < array1.length) yield array1(j)
   println(newArr1)
   //4
+  val array4 = ArrayBuffer(1, -2, 0, -3, -4, -5, 6, -7, 8)
+  println(array4)
+  val p = ArrayBuffer[Int]()
+  val n11 = ArrayBuffer[Int]()
+  for (i <- array4) yield if (i > 0)
+    p += i
+  else {
+    n11 += i
+  }
+  println("ex4  v1 " + (p ++ n11))
+  println("ex4  v2 "+ array4.sortBy(_ <= 0))
   //5
   //6
   //7
