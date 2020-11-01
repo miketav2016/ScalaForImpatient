@@ -52,6 +52,7 @@ object MapTuplesExamples extends App {
     "a" -> 4
   )
   // Interoperating with Java
+
   import scala.jdk.CollectionConverters.MapHasAsScala
 
   val scores: mutable.Map[String, Int] = new java.util.TreeMap[String, Int]().asScala
@@ -67,6 +68,10 @@ object MapTuplesExamples extends App {
   val myTuple0: (Int, Double, String) = (1, 3.14, "Fred")
   val myTuple1: Tuple3[Int, Double, String] = (1, 3.14, "Fred")
   // can be able access be ._N -where N num
+
+  import collection.SortedMap
+  //example
+  var t: SortedMap[String, Int] = SortedMap[String, Int]() ++ new java.util.TreeMap[String, Int].asScala
 
   import scala.language.postfixOps
 
