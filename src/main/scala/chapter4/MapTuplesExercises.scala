@@ -2,8 +2,10 @@ package chapter4
 
 
 import java.util
+import java.util.Properties
 
 import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 
 
 object MapTuplesExercises extends App {
@@ -66,5 +68,11 @@ object MapTuplesExercises extends App {
     val (k, v) = currentWords -> (mapCountJ.asScala.getOrElse(currentWords, 0) + 1)
     mapCountJ.put(k, v)
   }
-  println(mapCountIm.mkString("Map ( \n", " \n", "\n)"))
+  //  println(mapCountIm.mkString("Map ( \n", " \n", "\n)"))
+  //7. Print a table of all Java properties reported by the getProperties method of the
+  //java.lang.System class
+  val property: Properties = java.lang.System.getProperties
+  val likeScala: mutable.Map[String, String] = property.asScala
+  val maxLength = likeScala.keySet.map(_.length).max + 10
+  for ((k,v) <- likeScala) println(k + " " * (maxLength - k.length) + " | " + v)
 }
