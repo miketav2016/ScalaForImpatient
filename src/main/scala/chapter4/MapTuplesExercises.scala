@@ -84,5 +84,15 @@ object MapTuplesExercises extends App {
     (values.min, values.max)
   }
 
-  val arrayInt: Array[Int] = ArrayBuffer.fill(10)(Random.between(-10, 10)).toArray[Int]
+  val arrayInt: Array[Int] = ArrayBuffer.fill(20)(Random.between(-10, 10)).toArray[Int]
+  println(minmax(arrayInt))
+
+  //9. Write a function lteqgt(values: Array[Int], v: Int) that returns a triple
+  //containing the counts of values less than v, equal to v, and greater than v.
+  def lteqgt(values: Array[Int], v: Int): (Array[Int], Array[Int], Array[Int]) = {
+    (values.filter(_ < v), values.filter(_ == v), values.filter(_ > v))
+  }
+
+  lteqgt(arrayInt, 4).productIterator.foreach { case ar: Array[Int] => println(ar.mkString("Array(", ", ", ")")) }
+
 }
