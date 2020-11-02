@@ -5,7 +5,9 @@ import java.util
 import java.util.Properties
 
 import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters._
+import scala.util.Random
 
 
 object MapTuplesExercises extends App {
@@ -74,5 +76,13 @@ object MapTuplesExercises extends App {
   val property: Properties = java.lang.System.getProperties
   val likeScala: mutable.Map[String, String] = property.asScala
   val maxLength = likeScala.keySet.map(_.length).max + 10
-  for ((k,v) <- likeScala) println(k + " " * (maxLength - k.length) + " | " + v)
+  for ((k, v) <- likeScala) println(k + " " * (maxLength - k.length) + " | " + v)
+
+  //8. Write a function minmax(values: Array[Int]) that returns a pair containing the
+  //smallest and the largest values in the array.
+  def minmax(values: Array[Int]): (Int, Int) = {
+    (values.min, values.max)
+  }
+
+  val arrayInt: Array[Int] = ArrayBuffer.fill(10)(Random.between(-10, 10)).toArray[Int]
 }
