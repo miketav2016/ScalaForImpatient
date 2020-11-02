@@ -94,5 +94,8 @@ object MapTuplesExercises extends App {
   }
 
   lteqgt(arrayInt, 4).productIterator.foreach { case ar: Array[Int] => println(ar.mkString("Array(", ", ", ")")) }
-
+  //10. What happens when you zip together two strings, such as "Hello".zip("World")? Come
+  //up with a plausible use case.
+  "function  ".zip("returns   ")
+  "  ".zip("  ").mkString("", " ", "")
 }
