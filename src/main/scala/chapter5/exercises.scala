@@ -1,7 +1,7 @@
 package chapter5
 
 object exercises extends App{
-  /*1. Improve the Counter class in Section 5.1,
+  /* Improve the Counter class in Section 5.1,
    “Simple Classes and Parameterless Methods,”
     on page 55 so that it doesn't turn negative at Int.MaxValue.
     */
@@ -14,7 +14,7 @@ object exercises extends App{
     }
   }
   object exercises2 {
-    /*2. Write a class BankAccount with methods deposit and withdraw,
+    /* Write a class BankAccount with methods deposit and withdraw,
      and a read-only property balance.
      */
     class BankAccount {
@@ -55,5 +55,32 @@ object exercises extends App{
   val time0 = new exercise3.Time(20, 50)
   val time1 = new exercise3.Time(11, 30)
   println(time0.before(time1))
+
+  object exercise4 {
+    /*
+    * Reimplement the Time class from the preceding exercise so that the internal representation is
+    * the number of minutes since midnight (between 0 and 24 × 60 – 1). Do not change the public
+    * interface. That is, client code should be unaffected by your change.
+    */
+    class Time {
+
+      private var minutes: Int = 0
+
+      def this(hrs: Int, min: Int) {
+        this()
+        if (hrs >= 0 && hrs <= 24 && min >= 0 && min <= 59) {
+          this.minutes = hrs * 60 + min
+        }
+      }
+
+      def before(other: Time): Boolean = {
+        (other.minutes - minutes) > 0
+      }
+    }
+  }
+
+  val time40 = new exercise4.Time(20, 50)
+  val time41 = new exercise4.Time(21, 30)
+  println(time40.before(time41))
 
 }
