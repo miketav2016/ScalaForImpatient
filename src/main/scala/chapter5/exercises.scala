@@ -109,5 +109,18 @@ object exercises extends App{
       if (age < 0) age = 0
     }
   }
-
+  object  exercise7 {
+    /*Write a class Person with a primary constructor that accepts a string containing a first name,
+    * a space, and a last name, such as new Person("Fred Smith"). Supply read-only
+    * properties firstName and lastName. Should the primary constructor parameter be a var,
+    * a val, or a plain parameter? Why?
+    */
+    class Person (firstAndLastName: String) {
+      private val  res: Array[String] = firstAndLastName.split(" ")
+      val  firstName: String = res(0)
+      val  lastName: String = res(1)
+    }
+  }
+  val ex7 = new exercise7.Person("Fred Smith")
+  println(s"${ex7.firstName}  ${ex7.lastName} ")
 }
