@@ -1,14 +1,11 @@
 package chapter5
 
-import java.io.FileReader
 import java.time.Instant
 import java.util.Properties
 
-import chapter5.ClassesExamples.{chatter, myFace}
-
 object ClassesExamples extends App {
   //1
-  val myCounter = new Counter
+  val myCounter = new exercises
   myCounter.increment
   println(myCounter.current)
   //2
@@ -52,7 +49,7 @@ class Person {
   private var privateAge = 0
   private[this] var name = "same name"
 
-  def age = privateAge
+  def age: Int = privateAge
 
   def age_=(newValue: Int) {
     if (newValue > privateAge) privateAge = newValue; // Can't get younger
