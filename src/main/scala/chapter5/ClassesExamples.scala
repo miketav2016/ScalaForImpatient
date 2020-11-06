@@ -5,7 +5,7 @@ import java.util.Properties
 
 object ClassesExamples extends App {
   //1
-  val myCounter = new exercises
+  val myCounter = new Counter
   myCounter.increment
   println(myCounter.current)
   //2
