@@ -145,8 +145,19 @@ object exercises extends App{
         this(manufacturer, modelName, -1, licensePlate)
       }
     }
-
   }
 
   val ex8 = new exercise8.Car("df", "ds", 1999, "888")
+
+  object exercise10 {
+
+    //    class Employee(val name: String, var salary: Double) {
+    //      def this() { this("John Q. Public", 0.0) }
+    //    }
+    class Employee(val name: String = "John Q. Public", var salary: Double = .0) {
+
+    }
+
+  }
+
 }
