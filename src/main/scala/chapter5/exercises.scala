@@ -1,5 +1,7 @@
 package chapter5
 
+import scala.beans.BeanProperty
+
 object exercises extends App{
   /* Improve the Counter class in Section 5.1,
    “Simple Classes and Parameterless Methods,”
@@ -83,4 +85,19 @@ object exercises extends App{
   val time41 = new exercise4.Time(21, 30)
   println(time40.before(time41))
 
+  object exercise5 {
+    /*Make a class Student with read-write JavaBeans properties name (of type String) and
+    id (of type Long). What methods are generated? (Use javap to check.) Can you call the
+    JavaBeans getters and setters in Scala? Should you?
+    */
+    class Student {
+      @BeanProperty var name: String = ""
+      @BeanProperty var id: Long = 0
+    }
+  }
+
+  val st0 = new exercise5.Student
+  st0.setId(52222)
+  st0.setName("testStudent")
+  println(st0.getId + " " + st0.getName)
 }
