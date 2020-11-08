@@ -1,4 +1,7 @@
 package chapter6
+import java.awt.{PaintContext, Rectangle, RenderingHints}
+import java.awt.geom.{AffineTransform, Rectangle2D}
+import java.awt.image.ColorModel
 
 /*
 * Write an object Conversions with methods
@@ -23,7 +26,13 @@ class UnitConversion(coefficient: Double) {
 object InchesToCentimeters extends UnitConversion(2.54)
 object GallonsToLiters extends UnitConversion(3.78541)
 object MilesToKilometers extends UnitConversion(1.60934)
-
+/* 3
+* Define an Origin object that extends java.awt.Point.
+* Why is this not actually a good idea?
+* (Have a close look at the methods of the Point class.)
+*/
+object Origin extends java.awt.Point {}
+  /** mb because in same methods we need Point2D or uncomfortable "constructor"*/
 
 object ExercisesObject {
   def main(args: Array[String]): Unit = {
@@ -40,5 +49,9 @@ object ExercisesObject {
     println(InchesToCentimeters(1))
     println(GallonsToLiters(1))
     println(MilesToKilometers(1))
+    //3
+    val point = Origin
+      point.setLocation(5,8)
+    println(point.x)
   }
 }
