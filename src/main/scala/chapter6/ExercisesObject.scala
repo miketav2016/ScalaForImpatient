@@ -11,6 +11,19 @@ object Conversions {
   def gallonsToLiters(gallons: Double): Double = 3.78541 * gallons
   def milesToKilometers(milles: Double): Double = 1.60934 * milles
 }
+/* 2.
+* The preceding problem wasn’t very object-oriented. Provide a general superclass
+* UnitConversion and define objects InchesToCentimeters, GallonsToLiters,
+* and MilesToKilometers that extend it.
+*/
+class UnitConversion(coefficient: Double) {
+  def convert(num: Double): Double = coefficient * num
+  def apply(num: Double): Double = convert(num)
+}
+object InchesToCentimeters extends UnitConversion(2.54)
+object GallonsToLiters extends UnitConversion(3.78541)
+object MilesToKilometers extends UnitConversion(1.60934)
+
 
 object ExercisesObject {
   def main(args: Array[String]): Unit = {
@@ -18,5 +31,14 @@ object ExercisesObject {
     println(Conversions.gallonsToLiters(50))
     println(Conversions.inchesToCentimeters(50))
     println(Conversions.milesToKilometers(50))
+    //2
+    val rubToDollar = new UnitConversion(.013)
+    println(rubToDollar.convert(48000)) // government say that it middle salary
+    println(rubToDollar.convert(32000)) // but in really we have median like
+    println(rubToDollar.convert(20000)) // and mode like
+    println(rubToDollar.convert(11000)) // minimal need to survive (only food and communal services)
+    println(InchesToCentimeters(1))
+    println(GallonsToLiters(1))
+    println(MilesToKilometers(1))
   }
 }
