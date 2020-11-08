@@ -1,9 +1,6 @@
 package chapter6
-import java.awt.{PaintContext, Rectangle, RenderingHints}
-import java.awt.geom.{AffineTransform, Rectangle2D}
-import java.awt.image.ColorModel
 
-/*
+/** 1.
 * Write an object Conversions with methods
 * inchesToCentimeters,
 * gallonsToLiters,
@@ -14,7 +11,7 @@ object Conversions {
   def gallonsToLiters(gallons: Double): Double = 3.78541 * gallons
   def milesToKilometers(milles: Double): Double = 1.60934 * milles
 }
-/* 2.
+/** 2.
 * The preceding problem wasn’t very object-oriented. Provide a general superclass
 * UnitConversion and define objects InchesToCentimeters, GallonsToLiters,
 * and MilesToKilometers that extend it.
@@ -26,13 +23,23 @@ class UnitConversion(coefficient: Double) {
 object InchesToCentimeters extends UnitConversion(2.54)
 object GallonsToLiters extends UnitConversion(3.78541)
 object MilesToKilometers extends UnitConversion(1.60934)
-/* 3
+/** 3.
 * Define an Origin object that extends java.awt.Point.
 * Why is this not actually a good idea?
 * (Have a close look at the methods of the Point class.)
 */
 object Origin extends java.awt.Point {}
   /** mb because in same methods we need Point2D or uncomfortable "constructor"*/
+/** 4.
+ * Define a Point class with a companion object so that you can construct Point instances as
+ * Point(3, 4), without using new.
+ * */
+class Point (x: Int, y: Int) {
+  override def toString(): String = s"X: $x  Y: $y"
+}
+object  Point {
+  def apply(x: Int, y: Int): Point = new Point(x, y)
+}
 
 object ExercisesObject {
   def main(args: Array[String]): Unit = {
@@ -51,7 +58,10 @@ object ExercisesObject {
     println(MilesToKilometers(1))
     //3
     val point = Origin
-      point.setLocation(5,8)
+    point.setLocation(5, 8)
     println(point.x)
+    //4
+    val point4 = Point(3, 4)
+    println(point4)
   }
 }
