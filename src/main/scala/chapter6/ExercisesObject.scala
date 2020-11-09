@@ -60,6 +60,20 @@ object PlayingCards extends Enumeration {
   val hearts: PlayingCards.Value = Value(2, "♥")
   val spades: PlayingCards.Value = Value(3, "♠")
 }
+/** 8.
+ * Write an enumeration describing the eight corners of the RGB color cube.
+ * As IDs, use the color values (for example, 0xff0000 for Red).
+ * */
+object RGBCube extends Enumeration {
+  val black = Value(0,"0x000000")
+  val blue = Value(1,"0x0000ff")
+  val red = Value(2,"0xff0000")
+  val magenta = Value(3,"0xff00ff")
+  val green = Value(4,"0x00ff00")
+  val cyan = Value(5,"0x00ffff")
+  val yellow = Value(6,"0xffff00")
+  val white = Value(7,"0xffffff")
+}
 object ExercisesObject {
   def main(args: Array[String]): Unit = {
     //1
@@ -95,5 +109,7 @@ object ExercisesObject {
       }
     }
     cards.foreach(i => println(isWhatSuit(i)))
+    //8
+    for(i <- RGBCube.values) yield println(i)
   }
 }
