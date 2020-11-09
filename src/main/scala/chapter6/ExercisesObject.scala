@@ -50,6 +50,16 @@ object  Point {
 object ReverseWords extends App {
   println(args.toSeq.reverse.mkString(" "))
 }
+/** 6.
+ * Write an enumeration describing the four playing card suits
+ * so that the toString method returns ♣, ♦, ♥, or ♠.
+ */
+object PlayingCards extends Enumeration {
+  val clubs: PlayingCards.Value = Value(0, "♣")
+  val diamonds: PlayingCards.Value = Value(1, "♦")
+  val hearts: PlayingCards.Value = Value(2, "♥")
+  val spades: PlayingCards.Value = Value(3, "♠")
+}
 object ExercisesObject {
   def main(args: Array[String]): Unit = {
     //1
@@ -72,5 +82,8 @@ object ExercisesObject {
     //4
     val point4 = Point(3, 4)
     println(point4)
+    //6
+    val cards = PlayingCards.values
+    for(i <- cards) yield println(i)
   }
 }
