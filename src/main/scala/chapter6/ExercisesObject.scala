@@ -85,5 +85,15 @@ object ExercisesObject {
     //6
     val cards = PlayingCards.values
     for(i <- cards) yield println(i)
+/** 7.Implement a function that checks whether a card suit value from the preceding exercise is red.*/
+    def isWhatSuit (card: PlayingCards.Value): String = {
+      card.id match {
+        case 0 =>"clubs"
+        case 1 =>  "diamonds"
+        case 2 =>  "hearts "
+        case 3 =>  "spades "
+      }
+    }
+    cards.foreach(i => println(isWhatSuit(i)))
   }
 }
