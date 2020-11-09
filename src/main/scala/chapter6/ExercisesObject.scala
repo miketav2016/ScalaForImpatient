@@ -40,7 +40,16 @@ class Point (x: Int, y: Int) {
 object  Point {
   def apply(x: Int, y: Int): Point = new Point(x, y)
 }
-
+/** 5.
+ * Write a Scala application, using the App trait,
+ * that prints its command-line arguments in reverse order,
+ * separated by spaces.
+ * For example, scala Reverse Hello World should print World Hello.
+ * Note:set in argument same string
+ * */
+object ReverseWords extends App {
+  println(args.toSeq.reverse.mkString(" "))
+}
 object ExercisesObject {
   def main(args: Array[String]): Unit = {
     //1
