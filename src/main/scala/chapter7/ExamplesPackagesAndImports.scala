@@ -1,5 +1,5 @@
 package chapter7
-
+/**
 import java.awt.Color._
 /**7.9 Renaming and Hiding Members*/
 import java.util.{HashMap => JavaHashMap} // => rename
@@ -88,5 +88,4 @@ package people {
 
   }
 }
-
-
+*/
