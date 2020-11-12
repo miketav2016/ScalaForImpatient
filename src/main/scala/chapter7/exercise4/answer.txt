@@ -1,0 +1,4 @@
+Q:Why do you think the Scala language designers provided the package object syntax instead of simply letting you add functions and variables to a package?
+A:That’s an unfortunate limitation of the Java virtual machine.
+A package can contain classes, objects, and traits, but not the definitions of functions or variables.
+It would make more sense to add utility functions or constants to a package than to some Utils object. Package objects address this limitation.
