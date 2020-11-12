@@ -6,6 +6,7 @@ the standard output stream. Do not use any other imports, and do not use any qua
 (with dots).
 */
 import  java.lang.System.{getProperties => prop}
+import  java.lang
 object ex9 extends App {
   val res = prop.get("user.name")
   val password = "secret"
