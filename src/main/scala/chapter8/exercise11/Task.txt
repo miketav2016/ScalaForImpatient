@@ -1,0 +1,2 @@
+Define a value class Point that packs integer x and y coordinates into a Long (which you
+should make private).
