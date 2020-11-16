@@ -1,0 +1,3 @@
+Consult your favorite Java or C++ textbook which is sure to have an example of a toy
+inheritance hierarchy, perhaps involving employees, pets, graphical shapes, or the like.
+Implement the example in Scala.
