@@ -1,0 +1,14 @@
+The file scala/collection/immutable/Stack.scala contains the definition
+class Stack[A] protected (protected val elems: List[A])
+Explain the meanings of the protected keywords. (Hint: Review the discussion of private
+constructors in Chapter 5.)
+
+https://www.scala-lang.org/api/2.12.1/scala/collection/immutable/Stack.html
+
+!!!! Deprecated !!!!
+(Since version 2.11.0)
+ Stack is an inelegant and potentially poorly-performing wrapper around List.
+  Use List instead: stack push x becomes x :: list; stack.pop is list.tail.
+
+
+class A protected (???)  => private class A (???)
