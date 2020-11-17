@@ -1,0 +1,8 @@
+• Source.fromFile(...).getLines.toArray yields all lines of a file.
+• Source.fromFile(...).mkString yields the file contents as a string.
+• To convert a string into a number, use the toInt or toDouble method.
+• Use the Java PrintWriter to write text files.
+• "regex".r is a Regex object.
+• Use """...""" if your regular expression contains backslashes or quotes.
+• If a regex pattern has groups, you can extract their contents using the syntax for
+(regex(var 1 , ...,var n ) <- string).
