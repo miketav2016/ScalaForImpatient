@@ -6,3 +6,29 @@
 • Use """...""" if your regular expression contains backslashes or quotes.
 • If a regex pattern has groups, you can extract their contents using the syntax for
 (regex(var 1 , ...,var n ) <- string).
+
+Serialization
+In Java, serialization is used to transmit objects to other virtual machines or for short-term storage.
+(For long-term storage, serialization can be awkward—it is tedious to deal with different object
+versions as classes evolve over time.)
+Here is how you declare a serializable class in Java and Scala.
+
+Process Control
+Scala was designed to scale from humble scripting tasks to massive programs. The
+scala.sys.process package provides utilities to interact with shell programs. You can write
+your shell scripts in Scala, with all the power that the Scala language puts at your disposal.
+The process library uses the familiar shell operators | > >> < && ||, but it prefixes them
+with a # so that they all have the same precedence.
+
+If you want to use Scala for shell scripts in a UNIX/Linux/MacOS environment, start your
+script files like this:
+#!/bin/sh
+exec scala "$0" "$@"
+!#
+Scala commands
+
+You can also run Scala scripts from Java programs with the scripting integration of the
+javax.script package. To get a script engine, call
+
+ScriptEngine engine =
+new ScriptEngineManager().getScriptEngineByName("scala")
