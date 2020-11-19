@@ -1,0 +1,2 @@
+Write a Scala program that reads a text file containing only floating-point numbers. Print the
+sum, average, maximum, and minimum of the numbers in the file.
