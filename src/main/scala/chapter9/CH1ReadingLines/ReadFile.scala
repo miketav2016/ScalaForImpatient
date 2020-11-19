@@ -8,7 +8,7 @@ class ReadFile {
    * You can omit the encoding if you know that the file uses
    * the default platform encoding */
   val lineIterator: Iterator[String] = source.getLines
-  for (l <- lineIterator) l
+  for (l <- lineIterator) println(l)
 
   val lines: Array[String] = source.getLines.toArray
   val contents: String = source.mkString
