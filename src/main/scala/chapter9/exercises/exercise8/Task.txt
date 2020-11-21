@@ -1,0 +1,6 @@
+Write a Scala program that prints the src attributes of all img tags of a web page.
+Use regular expressions and groups.
+<img src="/wp-content/uploads/flamingo.jpg">
+<img class="fit-picture"
+     src="/media/cc0-images/grapefruit-slice-332-332.jpg"
+     alt="Grapefruit slice atop a pile of other slices">

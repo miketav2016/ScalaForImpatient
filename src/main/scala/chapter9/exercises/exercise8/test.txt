@@ -1,0 +1,7 @@
+"like this,   .123
+ maybe with \"
+  or \\" .1313
+  88 bottles
+  88 bottles
+  99 bottles
+  9.1654 45654 1561.6
