@@ -1,3 +1,6 @@
 Scala has traits instead of interfaces.
 A trait can have abstract and concrete methods, as well as state,
 and a class can implement multiple traits.
+Traits cannot have constructor parameters.
+Every trait has a single parameterless constructor.
+a trait can also extend a class

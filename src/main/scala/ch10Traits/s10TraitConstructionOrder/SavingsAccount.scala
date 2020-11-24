@@ -15,4 +15,5 @@ import ch10Traits.s9AbstractFieldsInTraits.ShortLogger
  */
 class SavingsAccount extends Account with FileLogger with ShortLogger{
   override val maxLength: Int = 50
+  override val filename: String = ""
 }
