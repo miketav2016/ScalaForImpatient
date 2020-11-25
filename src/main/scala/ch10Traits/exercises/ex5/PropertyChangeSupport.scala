@@ -1,11 +1,11 @@
 package ch10Traits.exercises.ex5
 
 import java.beans
-import java.beans.{PropertyChangeListener, PropertyChangeSupport}
+import java.beans.PropertyChangeListener
 
 trait PropertyChangeSupport {
 
-  private val pcs: beans.PropertyChangeSupport = PropertyChangeSupport
+  private val pcs = new beans.PropertyChangeSupport
 
   def addPropertyChangeListener(p: String, listener: PropertyChangeListener) {
     pcs.addPropertyChangeListener(p,listener)
