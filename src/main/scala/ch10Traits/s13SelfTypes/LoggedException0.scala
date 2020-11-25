@@ -7,7 +7,7 @@ import ch10Traits.s2TraitsAsInterfaces.ConsoleLogger
  */
 trait LoggedException0 extends ConsoleLogger {
   this: {def getMessage(): String} =>
-  def log() = {
+  def log(): Unit = {
     log(getMessage())
   }
 }
