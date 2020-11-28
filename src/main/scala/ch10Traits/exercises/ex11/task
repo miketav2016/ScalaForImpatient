@@ -1,0 +1,2 @@
+Implement a class IterableInputStream that extends java.io.InputStream with
+the trait Iterable[Byte].

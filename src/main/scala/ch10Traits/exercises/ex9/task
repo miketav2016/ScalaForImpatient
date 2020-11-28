@@ -1,0 +1,3 @@
+In the java.io library, you add buffering to an input stream with a
+BufferedInputStream decorator. Reimplement buffering as a trait. For simplicity,
+override the read method.

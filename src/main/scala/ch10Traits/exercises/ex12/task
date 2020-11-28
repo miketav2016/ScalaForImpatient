@@ -1,0 +1,4 @@
+Using javap -c -private, analyze how the call super.log(msg) is translated to
+Java. How does the same call invoke two different methods, depending on the mixin order?
+
+
