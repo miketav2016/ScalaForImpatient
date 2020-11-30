@@ -12,6 +12,8 @@ object DirectoriesClassCount extends App {
   val collectName = ArrayBuffer[String]()
   val entries: stream.Stream[Path] = Files.walk(Paths.get(dirName))
   entries.forEach(p => classRegex.findFirstIn(p.getFileName.toString).foreach(collectName += _))
+  //  if we knew about AAA
+  //  println(entries.map(path => classRegex.matches(path.getFileName.toString)).filter(_ == true).count())
   entries.close()
   println(collectName.length)
 
