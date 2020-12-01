@@ -1,0 +1,94 @@
+1 Identifiers
+Unicode characters are allowed. For example, quantité or ποσó are valid identifiers.
+In addition, you can use operator characters in identifiers:
+• The ASCII characters ! # % & * + - / : < = > ? @ \ ^ | ~ that are not letters,
+digits, underscore, the .,; punctuation marks, parentheses () [] {}, or quotation marks ' `
+".
+• Unicode mathematical symbols or other symbols from the Unicode categories Sm and So.
+For example, ** and √ are valid identifiers. With the definition
+    val √ = scala.math.sqrt _
+
+The identifiers @ # : = _ => <- <: <% >: ⇒ ← are reserved in the specification,
+and you cannot redefine them.
+
+
+val happy_birthday_!!! = "Bonne anniversaire!!!"
+Finally, you can include just about any sequence of characters in backquotes. For example,
+val `val` = 42
+For example, in Scala,yield is a reserved word, but you may need to access a Java method of the same name.
+ Backquotes to the rescue: Thread.`yield`().
+
+
+2 Infix Operatorse
+identifier denotes a method with two parameters (one implicit, one explicit)
+1 to 10 equal 1.to(10)
+1 -> 10 equal 1 .->(10)
+
+3 Unary Operators
+-a
+means the same as a.unary_-.
+42 toString equal 42.toString()
+
+4 Assignment Operators
+a operator= b equal a = a operator b
+There are a few technical details.
+• <=, >=, and != are not assignment operators.
+• An operator starting with an = is never an assignment operator (==, ===, =/=, and so on).
+• If a has a method called operator=, then that method is called directly.
+
+5 Precedence
+*/%
++-
+:
+<>
+! =
+&
+^
+|
+Postfix operators have lower precedence than infix operators:
+a infixOp b postfixOp
+is the same as
+(a infixOp b)postfixOp
+6 Associativity
+In Scala, all operators are left-associative except for
+• operators that end in a colon (:)
+• assignment operators
+In particular, the :: operator for constructing lists is right-associative. For example,
+1 :: 2 :: Nil
+means
+1 :: (2 :: Nil)
+
+2 :: Nil
+means
+Nil.::(2)
+
+7 The apply and update Methods
+The apply method is also commonly used in companion objects to construct objects without calling
+new
+The expression
+f(arg1, arg2, ...) = value
+corresponds to the call
+f.update(arg1, arg2, ..., value)
+val scores = new scala.collection.mutable.HashMap[String, Int]
+scores("Bob") = 100 // Calls scores.update("Bob", 100)
+val bobsScore = scores("Bob") // Calls scores.apply("Bob")
+
+8 Extractors
+An unapply method takes an object and extracts values
+from it—usually the values from which the object was constructed.
+Every case class automatically has apply and unapply methods.
+
+9 Extractors with One or No Arguments
+In Scala, there are no tuples with one component. If the unapply method extracts a single value, it
+should just return an Option of the target type.
+
+10 The unapplySeq Method
+To extract an arbitrary sequence of values, the method needs to be called unapplySeq. It returns an
+Option[Seq[A]], where A is the type of the extracted values.
+
+11 Dynamic Invocation
+Scala is a strongly typed language that reports type errors at compile time rather than at runtime.
+Dynamic types are an “exotic” feature, and the compiler wants your explicit consent when you
+implement such a type. You do that by adding the import statement
+import scala.language.dynamics
+Users of such types do not need to provide the import statement
