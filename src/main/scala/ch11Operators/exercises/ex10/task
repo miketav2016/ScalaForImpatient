@@ -1,0 +1,4 @@
+Modify the PathComponents object of the preceding exercise to instead define an
+unapplySeq operation that extracts all path segments. For example, for the file
+/home/cay/readme.txt, you should produce a sequence of three segments: home, cay,
+and readme.txt.
