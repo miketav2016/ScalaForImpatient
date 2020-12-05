@@ -1,0 +1,4 @@
+Improve the dynamic property selector in Section 11.11, “Dynamic Invocation,” on page 150
+so that one doesn’t have to use underscores. For example, sysProps.java.home should
+select the property with key "java.home". Use a helper class, also extending Dynamic,
+that contains partially completed paths.

@@ -1,0 +1,4 @@
+Define a class XMLElement that models an XML element with a name, attributes, and child
+elements. Using dynamic selection and method calls, make it possible to select paths such as
+rootElement.html.body.ul(id="42").li, which should return all li elements
+inside ul with id attribute 42 inside body inside html.

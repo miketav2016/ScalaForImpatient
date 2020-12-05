@@ -1,0 +1,4 @@
+ Provide an XMLBuilder class for dynamically building XML elements, as
+builder.ul(id="42", style="list-style: lower-alpha;"), where the
+method name becomes the element name and the named arguments become the attributes. Come
+up with a convenient way of building nested elements.
