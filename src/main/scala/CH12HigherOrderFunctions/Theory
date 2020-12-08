@@ -1,0 +1,50 @@
+1.
+In Scala, a function is a first-class citizen, just like a number. You can store a function in a variable.
+In Scala, you cannot manipulate methods, only functions.
+What can you do with a function? Two things:
+• Call it.
+• Pass it around, by storing it in a variable or giving it to a function as a parameter
+2.
+In Scala, you don’t have to give a name to each function, just like you don’t have to give a name to
+each number.
+Anything defined with def (in the REPL or a class or object) is a method, not a function:
+3.
+(parameterType) => resultType
+Since valueAtOneQuarter is a function that receives a function, it is called a higher-order
+function
+A higher-order function can also produce a function
+4.
+When you pass an anonymous function to another function or method, Scala helps you out by deducing
+types when possible.
+5.
+map - applies a function to all elements of a collection and returns the result.
+6.
+In Scala, you can define a function inside any scope: in a package, in a class, or even inside another
+function or method. In the body of a function, you can access any variables from an enclosing scope.
+That may not sound so remarkable, but note that your function may be called when the variable is no
+longer in scope.
+Closures aren’t difficult or surprising if they are a natural part of the language. Many modern
+languages, such as JavaScript, Ruby, and Python, support closures. Java, as of version 8, has
+closures in the form of lambda expressions.
+7.
+that as of Scala 2.12, one can pass Scala functions to Java
+code expecting a “SAM interface”—that is, any Java interface with a single abstract method. (Such
+interfaces are officially called functional interfaces in Java.)
+Note that the conversion from a Scala function to a Java SAM interface only works for function
+literals, not for variables holding functions.
+8.
+Currying (named after logician Haskell Brooks Curry) is the process of turning a function that takes
+two arguments into a function that takes one argument. That function returns a function that consumes
+the second argument.
+Recall that anything defined with def (in the REPL or a class or object) is a method, not a
+function. When defining curried methods with def, you can use multiple parentheses
+9.
+In Scala, one can model a sequence of statements as a function with no parameters or return value.
+e. Scala programmers can build control abstractions: functions that look like
+language keywords. For example, we can implement a function that is used exactly as a while
+statement.
+10.
+In Scala, you don’t use a return statement to return function values. The return value of a function
+is simply the value of the function body.
+However, you can use return to return a value from an anonymous function to an enclosing named
+function. This is useful in control abstractions.
