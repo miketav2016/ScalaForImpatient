@@ -1,0 +1,6 @@
+In Scala, a list is either Nil (that is, empty) or an object with a head element and a tail that is
+again a list.
+If you want to mutate list elements in place, you can use a ListBuffer, a data structure that is
+backed by a linked list with a reference to the last node. This makes it efficient to add or remove
+elements at either end of the list.However, adding or removing elements in the middle is not efficient.
+

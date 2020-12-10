@@ -1,0 +1,17 @@
+                       Seq(trait) immutable part
+             /          |          \        \          \
+      IndexedSeq(trait) List     Stream      Stack    Queue
+        /       \
+      Vector  Range
+
+    A Vector is the immutable equivalent of an ArrayBuffer: an indexed sequence with fast random
+access.Vectors are implemented as trees where each node has up to 32 children. For a vector with
+one million elements, one needs four layers of nodes. (Since 10^3 » 2^10, 10^6 » 32^4.) Accessing an
+element in such a list will take 4 hops, whereas in a linked list it would take an average of 500,000.
+    A Range represents an integer sequence, such as 0,1,2,3,4,5,6,7,8,9 or 10,20,30. Of
+course a Range object doesn’t store all sequence values but only the start, end, and increment.
+                       Seq(trait) mutable part
+             /          |          \        \                   \
+      IndexedSeq(trait) Stack    Queue    PriorityQueue     ListBuffer
+            |
+      ArrayBeffer

@@ -1,0 +1,16 @@
+            Itarable
+         /      |       \
+     Seq       Set      Map
+      /         |          \
+SortedSeq   SortedSet   SortedMap
+
+A Seq is an ordered sequence of values, such as an array or list. An IndexedSeq allows fast
+random access through an integer index. For example, an ArrayBuffer is indexed but a linked list
+is not.
+A Set is an unordered collection of values. In a SortedSet, elements are always visited in sorted
+order.
+A Map is a set of (key, value) pairs. A SortedMap visits the entries as sorted by the keys.
+Each Scala collection trait or class has a companion object with an apply method for constructing
+an instance of the collection.
+There are methods toSeq, toSet, toMap, and so on, as well as a generic to[C] method, that you
+can use to translate between collection types.

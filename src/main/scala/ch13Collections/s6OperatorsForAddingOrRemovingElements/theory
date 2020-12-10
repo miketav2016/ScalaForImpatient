@@ -1,0 +1,14 @@
+Generally, + is used for adding an element to an unordered collection, while +: and :+ add an
+element to the beginning or end of an ordered collection.
+Note that +:, like all operators ending in a colon, is right-associative, and that it is a method of the
+right operand.
+Mutable collections have a += operator that mutates the left-hand side.
+1. Append (:+) or prepend (+:) to a sequence.
+2. Add (+) to an unordered collection.
+3. Remove with the - operator.
+4. Use ++ and -- for bulk add and remove.
+5. Mutations are += ++= -= --=.
+6. For lists, many Scala programmers prefer the :: and ::: operators.
+7. Stay away from ++: +=: ++=:.
+For lists, you can use +: instead of :: for consistency, with one exception: Pattern matching
+(case h::t) does not work with the +: operator.

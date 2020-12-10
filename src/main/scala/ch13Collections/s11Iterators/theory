@@ -1,0 +1,22 @@
+You can obtain an iterator from a collection with the iterator method
+However, iterators are useful for collections that are expensive to construct fully. For example,
+Source.fromFile yields an iterator because it might not be efficient to read an entire file into
+memory. There are a few Iterable methods that yield an iterator, such as grouped or sliding.
+When you have an iterator, you can iterate over the elements with the next and hasNext methods.
+while (iter.hasNext)
+do something with iter.next()
+If you prefer, you can use a for loop instead:
+for (elem <- iter)
+do something with elem
+Both loops end up moving the iterator to the end of the collection, after which it is no longer usable.
+Both loops end up moving the iterator to the end of the collection, after which it is no longer usable.
+Sometimes, you want to be able to look at the next element before deciding whether to consume it. In
+that case, use the buffered method to turn an Iterator into a BufferedIterator. The
+head method yields the next element without advancing the iterator.
+val iter = scala.io.Source.fromFile(filename).buffered
+while (iter.hasNext && iter.head.isWhitespace) iter.next
+// Now iter points to the first non-whitespace character
+If you find it too tedious to work with an iterator, you can use a method such as toArray,
+toIterable, toSeq, toSet, or toMap to copy the values into a collection.
+iterator is a “lazy” alternative to a collection.
+r, iterators are fragile. Each call to next mutates the iterator

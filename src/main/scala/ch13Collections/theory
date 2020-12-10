@@ -1,0 +1,14 @@
+The key points of this chapter are:
+• All collections extend the Iterable trait.
+• The three major categories of collections are sequences, sets, and maps.
+• Scala has mutable and immutable versions of most collections.
+• A Scala list is either empty, or it has a head and a tail which is again a list.
+• Sets are unordered collections.
+• Use a LinkedHashSet to retain the insertion order or a SortedSet to iterate in sorted
+order.
+• + adds an element to an unordered collection; +: and :+ prepend or append to a sequence; ++
+concatenates two collections; - and -- remove elements.
+• The Iterable and Seq traits have dozens of useful methods for common operations. Check
+them out before writing tedious loops.
+• Mapping, folding, and zipping are useful techniques for applying a function or operation to the
+elements of a collection.

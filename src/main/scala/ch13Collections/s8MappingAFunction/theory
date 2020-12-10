@@ -1,0 +1,7 @@
+You may want to transform all elements of a collection. The map method applies a function to a
+collection and yields a collection of the results.
+If the function yields a collection instead of a single value, you may want to concatenate all results. In
+that case, use flatMap.
+flatMap = Map + Flatten
+If you use flatMap with a function that returns an Option, the resulting collection contains
+all values v for which the function returns Some(v).

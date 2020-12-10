@@ -1,0 +1,12 @@
+An immutable collection can never change,
+so you can safely share a reference to it, even in a multi-threaded program.
+When you have a reference to a scala.collection.immutable.Map, you know that
+nobody can change the map. If you have a scala.collection.Map, then you can’t change
+it, but someone else might.
+Scala gives a preference to immutable collections.
+Moreover, the scala package and the Predef object, which are always imported, have type
+aliases List, Set, and Map that refer to the immutable traits. For example, Predef.Map is the
+same as scala.collection.immutable.Map.
+With the statement import scala.collection.mutable
+you can get an immutable map as Map and a mutable one as mutable.Map.
+

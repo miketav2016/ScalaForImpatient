@@ -1,0 +1,5 @@
+ Each call to next mutates the iterator. Streams offer an immutable
+alternative. A stream is an immutable list in which the tail is computed lazily—that is, only when you
+ask for it.
+You can construct a stream from an iterator. For example, the Source.getLines method returns
+an Iterator[String]. With that iterator, you can only visit the lines once

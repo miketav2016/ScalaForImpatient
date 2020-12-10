@@ -1,0 +1,9 @@
+A set is a collection of distinct elements. Trying to add an existing element has no effect. For
+example,
+Set(2, 0, 1) + 1
+is the same as Set(2, 0, 1).
+Unlike lists, sets do not retain the order in which elements are inserted. By default, sets are
+implemented as hash sets in which elements are organized by the value of the hashCode method.
+Finding an element in a hash set is much faster than in an array or list.
+The union, intersect, and diff methods carry out the usual set operations. If you prefer, you
+can write them as |, &, and &~. You can also write union as ++ and difference as --.

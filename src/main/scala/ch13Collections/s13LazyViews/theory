@@ -1,0 +1,3 @@
+In the preceding section, you saw that stream methods are computed lazily, delivering results only
+when they are needed. You can get a similar effect with other collections by applying the view
+method.
