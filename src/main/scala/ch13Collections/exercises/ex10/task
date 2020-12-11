@@ -1,0 +1,3 @@
+The method java.util.TimeZone.getAvailableIDs yields time zones such as
+Africa/Cairo and Asia/Chungking. Which continent has the most time zones? Hint:
+groupBy.

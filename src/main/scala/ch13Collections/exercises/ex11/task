@@ -1,0 +1,6 @@
+Harry Hacker reads a file into a string and wants to use a parallel collection to update the letter
+frequencies concurrently on portions of the string. He uses the following code:
+val frequencies = new scala.collection.mutable.HashMap[Char, Int]
+for (c <- str.par) frequencies(c) = frequencies.getOrElse(c, 0) + 1
+Why is this a terrible idea? How can he really parallelize the computation? (Hint: Use
+aggregate.)

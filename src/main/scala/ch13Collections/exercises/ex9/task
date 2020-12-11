@@ -1,0 +1,7 @@
+The Scala compiler transforms a for/yield expression
+for (i <- 1 to 10; j <- 1 to i) yield i * j
+to invocations of flatMap and map, like this:
+(1 to 10).flatMap(i => (1 to i).map(j => i * j))
+Explain the use of flatMap. Hint: What is (1 to i).map(j => i * j) when i is 1,
+2, 3?
+What happens when there are three generators in the for/yield expression?
