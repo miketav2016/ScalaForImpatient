@@ -1,0 +1,14 @@
+When you match against a type, you must supply a variable name. Otherwise, you match the
+object:
+Click here to view code image
+obj match {
+case _: BigInt => Int.MaxValue // Matches any object of type BigInt
+case BigInt => -1 // Matches the BigInt object of type Class
+
+Matches occur at runtime, and generic types are erased in the Java virtual machine. For that
+reason, you cannot make a type match for a specific Map type.
+Click here to view code image
+case m: Map[String, Int] => ... // Don't
+You can match a generic map:
+case m: Map[_, _] => ... // OK
+However, arrays are not erased. You can match an Array[Int].

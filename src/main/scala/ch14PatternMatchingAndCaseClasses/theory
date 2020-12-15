@@ -1,0 +1,20 @@
+Pattern matching is a powerful mechanism that has a number of applications: switch statements,
+type inquiry, and “destructuring” (getting at the parts of complex expressions). Case classes are
+optimized to work with pattern matching.
+The key points of this chapter are:
+• The match expression is a better switch, without fall-through.
+• If no pattern matches, a MatchError is thrown. Use the case _ pattern to avoid that.
+• A pattern can include an arbitrary condition, called a guard.
+• You can match on the type of an expression; prefer this over
+isInstanceOf/asInstanceOf.
+• You can match patterns of arrays, tuples, and case classes, and bind parts of the pattern to
+variables.
+• In a for expression, nonmatches are silently skipped.
+• A case class is a class for which the compiler automatically produces the methods that are
+needed for pattern matching.
+• The common superclass in a case class hierarchy should be sealed.
+• Use the Option type for values that may or may not be present—it is safer than using null.
+Patterns are always matched top-to-bottom.
+
+The toString, equals, hashCode, and copy methods are not generated for case
+classes that extend other case classes

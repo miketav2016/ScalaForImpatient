@@ -1,0 +1,10 @@
+When they are appropriate, case classes are quite convenient, for the following reasons:
+• Pattern matching often leads to more concise code than inheritance.
+• It is easier to read compound objects that are constructed without new.
+• You get toString, equals, hashCode, and copy for free
+
+The toString, equals, hashCode, and copy methods are not generated for case
+classes that extend other case classes. You get a compiler warning if one case class inherits
+from another. A future version of Scala may outlaw such inheritance altogether. If you need
+multiple levels of inheritance to factor out common behavior of case classes, make only the
+leaves of the inheritance tree into case classes.

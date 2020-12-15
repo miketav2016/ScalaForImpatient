@@ -1,0 +1,18 @@
+The expression
+val p(x1, ..., xn) = e
+is, by definition, exactly the same as
+
+val $result = e match { case p(x1, ..., xn) => (x1, ..., xn) }
+val x1 = $result._1
+...
+val xn = $result._n
+where x1, . . . , xn are the free variables in the pattern p.
+This definition holds even when there are no free variables in the pattern. For example,
+val 2 = x
+is perfectly legal Scala code, provided x has been defined elsewhere. When you apply the
+definition, you get
+
+val $result = x match { case 2 => () }
+followed by no assignments. In other words, it is equivalent to
+Click here to view code image
+if (!(2 == x)) throw new MatchError

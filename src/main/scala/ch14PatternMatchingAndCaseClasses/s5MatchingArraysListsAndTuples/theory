@@ -1,0 +1,6 @@
+If a pattern has alternatives, you cannot use variables other than an underscore. For example,
+
+pair match {
+case (_, 0) | (0, _) => ... // OK, matches if one component is zero
+case (x, 0) | (0, x) => ... // Error—cannot bind with alternatives
+}

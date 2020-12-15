@@ -1,0 +1,9 @@
+When you declare a case class, several things happen automatically.
+• Each of the constructor parameters becomes a val unless it is explicitly declared as a var
+(which is not recommended).
+• An apply method is provided for the companion object that lets you construct objects without
+new, such as Dollar(29.95) or Currency(29.95, "EUR").
+• An unapply method is provided that makes pattern matching work—see Chapter 11 for the
+details. (You don’t really need to know these details to use case classes for pattern matching.)
+• Methods toString, equals, hashCode, and copy are generated unless they are
+explicitly provided.
