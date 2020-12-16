@@ -3,7 +3,7 @@ package ch9FilesAndRegularExpressions.CH1ReadingLines
 import scala.io.{BufferedSource, Source}
 
 class ReadFile {
-  val source: BufferedSource = Source.fromFile("src/main/scala/chapter9/theory.txt", "UTF-8")
+  val source: BufferedSource = Source.fromFile("src/main/scala/ch9FilesAndRegularExpressions/theory.txt", "UTF-8")
   /** The first argument can be a string or a java.io.File
    * You can omit the encoding if you know that the file uses
    * the default platform encoding */
