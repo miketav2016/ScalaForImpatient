@@ -1,0 +1,13 @@
+By default, Scala futures are executed on the global fork-join pool. That works well for
+computationally intensive tasks. However, the fork-join pool only manages a small number of threads
+(by default, equal to the number of cores of all processors). This is a problem when tasks have to
+wait, for example when communicating with a remote resource. A program could exhaust all
+available threads, waiting for results.
+You can notify the execution context that you are about to block, by placing the blocking code inside
+blocking { ... }:
+The execution context may then increase the number of threads. The fork-join pool does exactly that,
+but it isn’t designed for perform well for many blocking threads. If you do input/output or connect to
+databases, you are better off using a different thread pool. The Executors class from the Java
+concurrency library gives you several choices. A cached thread pool works well for I/O intensive
+workloads. You can pass it explicitly to the Future.apply method, or you can set it as the
+implicit execution context:

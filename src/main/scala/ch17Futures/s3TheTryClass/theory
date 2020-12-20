@@ -1,0 +1,2 @@
+A Try[T] instance is either a Success(v), where v is a value of type T or a Failure(ex),
+where ex is a Throwable.

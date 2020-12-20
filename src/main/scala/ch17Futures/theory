@@ -1,0 +1,32 @@
+Writing concurrent applications that work correctly and with high performance is very challenging.
+The traditional approach, in which concurrent tasks have side effects that mutate shared data, is
+tedious and error-prone. Scala encourages you to think of a computation in a functional way. A
+computation yields a value, sometime in the future. As long as the computations don’t have side
+effects, you can let them run concurrently and combine the results when they become available. In this
+chapter, you will see how to use the Future and Promise traits to organize such computations.
+The key points of this chapter are:
+• A block of code wrapped in a Future { ... } executes concurrently.
+• A future succeeds with a result or fails with an exception.
+• You can wait for a future to complete, but you don’t usually want to.
+• You can use callbacks to get notified when a future completes, but that gets tedious when
+chaining callbacks.
+• Use methods such as map/flatMap, or the equivalent for expressions, to compose futures.
+• A promise has a future whose value can be set (once), which gives added flexibility for
+implementing tasks that produce results.
+• Pick an execution context that is suitable for the concurrent workload of your computation.
+***
+A Future starts execution immediately when it is created
+***
+So far, you have seen how to run two tasks concurrently. Sometimes, you need one task to run after
+another. A Future starts execution immediately when it is created. To delay the creation, use
+functions.
+***
+Like the Future trait, the Try class from Section 17.3, “The Try Class,” has map and flatMap methods.
+A Try[T] is a collection of, hopefully, one element. It is just like a Future[T], except you don’t have to wait.
+You can apply map with a function that changes that one element,
+or flatMap if you have Try-valued function and want to flatten the result.
+And you can use for expressions. For example, here is how to compute the sum of two function calls that might fail:
+def readInt(prompt: String) = Try(StdIn.readLine(s"$prompt: ").toInt)
+val t = for (n1 <- readInt("n1"); n2 <- readInt("n2")) yield n1 + n2
+In this way, you can compose Try-valued computations and you don’t need to deal with the
+boring part of error handling.

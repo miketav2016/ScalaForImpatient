@@ -1,0 +1,6 @@
+As already mentioned, one does not usually use a blocking wait to get the result of a future. For better
+performance, the future should report its result to a callback function.
+***
+There are callback methods onSuccess and onFailure that are only called on success or
+failure of a future. However, these are deprecated because they are even bigger contributors to
+callback hell.

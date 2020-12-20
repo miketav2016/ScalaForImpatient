@@ -1,0 +1,19 @@
+Suppose that, as you are computing a result, you organize the work so that you can concurrently work
+on different parts. For example, each part might be a range of the inputs. Make a future for each part:
+val futures = parts.map(p => Future { compute result in p })
+val result = Future.sequence(futures)
+The traverse method combines the map and sequence steps.
+val result = Future.traverse(parts)(p => Future { compute result in p })
+***
+A potential problem with firstCompletedOf and find is that the other computations
+keep on going even when the result has been determined. Scala futures do not have a
+mechanism for cancellation. If you want to stop unnecessary work, you have to provide your
+own mechanism.
+***
+Finally, the Future object provides convenience methods for generating simple futures:
+• Future.successful(r) is an already completed future with result r.
+• Future.failed(e) is an already completed future with exception e.
+• Future.fromTry(t) is an already completed future with the result or exception given in
+the Try object t.
+• Future.unit is an already completed future with Unit result.
+• Future.never is a future that never completes

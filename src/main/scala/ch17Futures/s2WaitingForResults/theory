@@ -1,0 +1,16 @@
+When you have a Future, you can use the isCompleted method to check whether it is
+completed.
+***
+In practice, you won’t use the Await.result or Await.ready methods much. You run
+tasks concurrently when they are time-consuming and your program can do something more
+useful than waiting for the result
+***
+In this section, we used the result and ready methods of the Await object. The Future
+class also has result and ready methods, but you should not call them. If the execution
+context uses a small number of threads (which is the case for the default fork-join pool), you
+don’t want them all to block. Unlike the Future methods, the Await methods notify the
+execution context so that it can adjust the pooled threads.
+***
+Not all exceptions that occur during execution of the future are stored in the result. Virtual
+machine errors and the InterruptedException are allowed to propagate in the usual
+way.

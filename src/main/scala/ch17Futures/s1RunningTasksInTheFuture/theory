@@ -1,0 +1,20 @@
+Each Future must be constructed with a reference to an ExecutionContext. The simplest way
+is to import
+Click here to view code image
+import ExecutionContext.Implicits.global
+
+***
+In the Play web framework, you are encouraged to return Future objects in the “action”
+methods that react to web requests. Then you don’t have to worry how the results are harvested
+—that’s the job of the framework.
+***
+The java.util.concurrent package has a Future interface that is much more limited than the Scala Future trait.
+A Scala future is equivalent to the CompletionStage interface in Java 8.
+***
+The Scala language imposes no restrictions on what you can do in concurrent tasks. However,
+you should stay away from computations with side effects. It is best if you don’t increment
+shared counters—even atomic ones. Don’t populate shared maps—even threadsafe ones.
+Instead, have each future compute a value. Then you can combine the computed values after all
+contributing futures have completed. That way, each value is only owned by one task at a time,
+and it is easy to reason about the correctness of the computation.
+

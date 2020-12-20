@@ -1,0 +1,9 @@
+What if something goes wrong? The map and flatMap implementations take care of all that. As
+soon as one of the tasks fails, the entire pipeline fails, and the exception is captured. In contrast, when
+you manually combine callbacks, you have to deal with failure at every step.
+***
+If you find the for/yield construct unnatural, check out the Scala Async library at
+http://github.com/scala/async. It uses Scala Macros to let you express the flow
+more naturally as
+val combined = async { await(future1) + await(future2) }
+***
