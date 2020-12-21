@@ -1,0 +1,2 @@
+Write a function that receives a sequence of futures and returns a future that eventually yields a
+sequence of all results.

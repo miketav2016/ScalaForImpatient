@@ -1,0 +1,3 @@
+Write a function doInOrder that, given two functions f: T => Future[U] and g: U
+=> Future[V], produces a function T => Future[U] that, for a given t, eventually
+yields g(f(t)).

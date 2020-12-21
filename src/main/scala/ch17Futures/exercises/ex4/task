@@ -1,0 +1,3 @@
+Write a function doTogether that, given two functions f: T => Future[U] and g: U
+=> Future[V], produces a function T => Future[(U, V)], running the two
+computations in parallel and, for a given t, eventually yielding (f(t), g(t)).

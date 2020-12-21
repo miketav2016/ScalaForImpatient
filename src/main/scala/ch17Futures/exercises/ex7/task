@@ -1,0 +1,4 @@
+Write a program that counts the prime numbers between 1 and n, as reported by
+BigInt.isProbablePrime. Divide the interval into p parts, where p is the number of
+available processors. Count the primes in each part in concurrent futures and combine the
+results.

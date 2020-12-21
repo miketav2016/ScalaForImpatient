@@ -1,0 +1,9 @@
+Consider the expression
+for (n1 <- Future { Thread.sleep(1000) ; 2 }
+n2 <- Future { Thread.sleep(1000); 40 })
+println(n1 + n2)
+How is the expression translated to map and flatMap calls? Are the two futures executed
+concurrently or one after the other? In which thread does the call to println occur?
+Answer:
+one by one - consistently.
+println occur -any another thread
