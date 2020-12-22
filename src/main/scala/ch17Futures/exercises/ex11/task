@@ -1,0 +1,10 @@
+Using futures, run four tasks that each sleep for ten seconds and then print the current time. If
+you have a reasonably modern computer, it is very likely that it reports four available
+processors to the JVM, and the futures should all complete at around the same time. Now repeat
+with forty tasks. What happens? Why? Replace the execution context with a cached thread pool.
+What happens now? (Be careful to define the futures after replacing the implicit execution
+context.)
+Answer:
+p = Runtime.getRuntime.availableProcessors()
+1. with 40 tasks(futures) we wait when thread will be free for next task -  simultaneously run only  p tasks.
+2. all at the same time, if we used own the execution context.

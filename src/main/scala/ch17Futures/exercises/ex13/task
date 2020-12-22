@@ -1,0 +1,4 @@
+Use a promise for implementing cancellation. Given a range of big integers, split the range into
+subranges that you concurrently search for palindromic primes. When such a prime is found, set
+it as the value of the future. All tasks should periodically check whether the promise is
+completed, in which case they should terminate.
