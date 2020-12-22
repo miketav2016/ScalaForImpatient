@@ -6,13 +6,13 @@ import scala.math.random
 
 object A extends App {
   val parts: Seq[Int] = 1 to 10
-  val futures = parts.map(p => Future {
+  val futures: Seq[Future[Int]] = parts.map(p => Future {
 //    if (random() < 0.5) throw new Exception
     p * 10
   })
-  val result0 = Future.sequence(futures)
+  val result0: Future[Seq[Int]] = Future.sequence(futures)
   //The traverse method combines the map and sequence steps.
-  val result1 = Future.traverse(parts)(p => Future {
+  val result1: Future[Seq[Int]] = Future.traverse(parts)(p => Future {
     p * 10
   })
   // Yields a future to the sum of the results of all futures
