@@ -1,0 +1,11 @@
+An annotation must extend the Annotation trait.
+If you want to implement a new Java annotation, you need to write the annotation class in Java.
+You can, of course, use that annotation for your Scala classes.
+
+ there are six items that can be annotation targets:
+• The constructor parameter
+• The private instance field
+• The accessor method username
+• The mutator method username_=
+• The bean accessor getUsername
+• The bean mutator setUsername

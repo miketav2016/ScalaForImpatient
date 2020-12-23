@@ -1,0 +1,22 @@
+
+
+
+
+If the annotation has no arguments, the parentheses can be omitted:
+@Entity class Credentials
+
+@Test def testSomeFeature() { ... }
+this annotation is equivalent to
+@Test(timeout = 0, expected = classOf[org.junit.Test.None])
+def testSomeFeature() { ... }
+
+Arguments of Java annotations are restricted to the following types:
+• Numeric literals
+• Strings
+• Class literals
+• Java enumerations
+• Other annotations
+• Arrays of the above (but not arrays of arrays)
+Arguments of Scala annotations can be of arbitrary types, but only a couple of the Scala annotations
+take advantage of this added flexibility. For instance, the @deprecatedName annotation has an
+argument of type Symbol.

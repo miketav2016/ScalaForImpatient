@@ -1,0 +1,14 @@
+Annotations let you add information to program items. This information can be processed by the
+compiler or by external tools.
+• You can annotate classes, methods, fields, local variables, parameters, expressions, type
+parameters, and types.
+• With expressions and types, the annotation follows the annotated item.
+• Annotations have the form @Annotation, @Annotation(value), or
+@Annotation(name1 = value1, ...).
+• @volatile, @transient, @strictfp, and @native generate the equivalent Java
+modifiers.
+• Use @throws to generate Java-compatible throws specifications.
+• The @tailrec annotation lets you verify that a recursive function uses tail call optimization.
+• The assert function takes advantage of the @elidable annotation. You can optionally
+remove assertions from your Scala programs.
+• Use the @deprecated annotation to mark deprecated features.

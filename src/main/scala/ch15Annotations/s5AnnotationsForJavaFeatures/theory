@@ -1,0 +1,38 @@
+1 Java Modifiers
+Scala uses annotations instead of modifier keywords for some of the less commonly used Java
+features.
+
+2 Marker Interfaces
+Scala uses annotations @cloneable and @remote instead of the Cloneable and
+java.rmi.Remote marker interfaces for cloneable and remote objects.
+@deprecated - this method will be removed in  12.0")
+With serializable classes, you can use the @SerialVersionUID annotation to specify the serial
+version
+
+3 Checked Exceptions
+Unlike Scala, the Java compiler tracks checked exceptions. If you call a Scala method from Java
+code, its signature should include the checked exceptions that can be thrown. Use the @throws
+annotation to generate the correct signature.
+  весьма удобно. когда надо понять какие исключения может выдать например метод,
+  вместо того, чтобы изучать метод каждый раз, проще 1 раз выписать.
+
+4 Variable Arguments
+The @varargs annotation lets you call a Scala variable-argument method from Java. By default, if
+you supply a method such as
+    def process(args: String*)
+the Scala compiler translates the variable argument into a sequence
+    def process(args: Seq[String])
+That is cumbersome to use in Java. If you add @varargs,
+    @varargs def process(args: String*)
+then a Java method
+    void process(String... args) // Java bridge method
+
+5 JavaBeans
+@scala.reflect.BeanProperty, the compiler generates JavaBeans-style getter and setter
+methods.
+The @BooleanBeanProperty annotation generates a getter with an is prefix for a Boolean
+method.
+The annotations @BeanDescription, @BeanDisplayName, @BeanInfo,
+@BeanInfoSkip let you control some of the more obscure features of the JavaBeans
+specifications. Very few programmers need to worry about these. If you are among them, you’ll
+figure out what to do from the Scaladoc descriptions.

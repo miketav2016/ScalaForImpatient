@@ -1,0 +1,10 @@
+Annotations are tags that you insert into your source code so that some tools can process them. These
+tools can operate at the source level, or they can process the class files into which the compiler has
+placed your annotations.
+Annotations are widely used in Java.
+You can also use Scala annotations. These annotations are specific to Scala and are usually
+processed by the Scala compiler or a compiler plugin.
+Java annotations do not affect how the compiler translates source code into bytecode; they merely add
+data to the bytecode that can be harvested by external tools. In Scala, annotations can affect the
+compilation process. For example, the @BeanProperty annotation that you saw in Chapter 5
+causes the generation of getter and setter methods.
