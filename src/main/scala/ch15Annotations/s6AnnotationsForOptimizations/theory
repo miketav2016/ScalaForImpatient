@@ -1,0 +1,46 @@
+Several annotations in the Scala library let you control compiler optimizations.
+
+1 Tail Recursion
+A recursive call can sometimes be turned into a loop, which conserves stack space.
+***
+A more general mechanism for recursion elimination is “trampolining”. A trampoline
+implementation runs a loop that keeps calling functions. Each function returns the next function
+to be called. Tail recursion is a special case where each function returns itself. The more
+general mechanism allows for mutual calls—see the example that follows.
+Scala has a utility object called TailCalls that makes it easy to implement a trampoline.
+The mutually recursive functions have return type TailRec[A] and return either
+done(result) or tailcall(fun) where fun is the next function to be called.This
+needs to be a parameterless function that also returns a TailRec[A].
+***
+
+2 Jump Table Generation and Inlining
+The @switch annotation lets you check whether a Scala match clause is indeed compiled into one.
+The @inline and @noinline annotations let you direct the Scala compiler.
+
+3 Eliding Methods
+The @elidable annotation flags methods that can be removed in production code.
+The elidable object defines the following numerical
+constants:
+• MAXIMUM or OFF = Int.MaxValue
+• ASSERTION = 2000
+• SEVERE = 1000
+• WARNING = 900
+• INFO = 800
+• CONFIG = 700
+• FINE = 500
+• FINER = 400
+• FINEST = 300
+• MINIMUM or ALL = Int.MinValue
+
+If the method is called with mismatched arguments, the assert method throws an
+AssertionError with message assertion failed: lengths don’t match.
+To disable assertions, compile with -Xelide-below 2001 or -Xelide-below MAXIMUM.
+Note that by default assertions are not disabled. This is a welcome improvement over Java
+assertions.
+
+4 Specialization for Primitive Types
+It is inefficient to wrap and unwrap primitive type values—but in generic code, this often happens.
+You can generate these methods automatically by annotating the type parameter with
+@specialized
+In the annotation constructor, you can provide any subset of Unit, Boolean, Byte, Short,
+Char, Int, Long, Float, Double.

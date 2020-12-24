@@ -1,0 +1,16 @@
+If you mark a feature with the @deprecated annotation, the compiler generates a warning
+whenever the feature is used. The annotation has two optional arguments, message and since.
+The @deprecatedName is applied to a parameter, and it specifies a former name for the
+parameter.
+***
+The constructor argument is a symbol—a name preceded by a single quote. Symbols with the
+same name are guaranteed to be unique. Therefore, comparing symbols is a bit more efficient
+than comparing strings. More importantly, there is a semantic distinction: A symbol denotes a
+name of some item in a program.
+***
+The @deprecatedInheritance and @deprecatedOverriding annotations generate
+warnings that inheriting from a class or overriding a method is now deprecated.
+The @implicitNotFound and @implicitAmbiguous annotations generates meaningful error
+messages when an implicit value is not available or ambiguous.
+The @unchecked annotation suppresses a warning that a match is not exhaustive.
+The @uncheckedVariance annotation suppresses a variance error message.
