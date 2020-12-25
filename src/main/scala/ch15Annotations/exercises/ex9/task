@@ -1,0 +1,11 @@
+The Range.foreach method is annotated as @specialized(Unit). Why? Look at the
+bytecode by running
+
+javap -classpath /path/to/scala/lib/scala-library.jar
+scala.collection.immutable.Range
+and consider the @specialized annotations on Function1. Click on the
+Function1.scala link in Scaladoc to see them.
+
+answer:
+1. It is inefficient to wrap and unwrap primitive type values—but in generic code, this often happens.
+You can generate these methods automatically by annotating the type parameter with @specialized

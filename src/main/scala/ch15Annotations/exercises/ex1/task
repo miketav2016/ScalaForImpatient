@@ -1,0 +1,7 @@
+Write four JUnit test cases that use the @Test annotation with and without each of its
+arguments. Run the tests with JUnit.
+@Test def testSomeFeature() { ... }
+this annotation is equivalent to
+@Test(timeout = 0, expected = classOf[org.junit.Test.None])
+def testSomeFeature() { ... }
+see MyTest
