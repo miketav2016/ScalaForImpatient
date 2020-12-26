@@ -1,0 +1,21 @@
+The Node class is the ancestor of all XML node types. Its two most important subclasses are Text and Elem.
+Unfortunately, unlike a DOM node, a Scala Node retains no information about its parent.
+***
+Node sequences are of type NodeSeq, a subtype of Seq[Node] that adds support for XPath-like
+operators. You can use any of the Seq operations described in Chapter 13 with XML node sequences.
+To traverse a sequence, simply use a
+for loop, for example:
+for (n <- elem.child) process n
+***
+The Node class extends NodeSeq. A single node is a sequence of length 1. This is supposed
+to make it easier to deal with functions that can return a single node or a sequence. (It actually
+creates as many problems as it solves, so I don’t recommend using this trick in your own
+designs.)
+***
+There are also node classes for XML comments (<!-- ... -->), entity references (&...;), and
+processing instructions (<? ... ?>).
+***
+A NodeBuffer is a Seq[Node]. It can be implicitly converted to a NodeSeq. Once this
+conversion has occurred, you need to be careful not to mutate the node buffer any longer since
+XML node sequences are supposed to be immutable.
+***

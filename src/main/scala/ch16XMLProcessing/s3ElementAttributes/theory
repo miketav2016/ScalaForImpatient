@@ -1,0 +1,8 @@
+To process the attribute keys and values of an element, use the attributes property. It yields an
+object of type MetaData which is almost, but not quite, a Map from attribute keys to values.
+***
+If you find it inconvenient to deal with entity references in XML literals, you can use character
+references instead: <img alt="San Jos&#233; State University Logo"
+.../>.
+***
+

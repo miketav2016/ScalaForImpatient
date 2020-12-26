@@ -1,0 +1,24 @@
+Scala has built-in support for XML literals that makes it easy to generate XML fragments in your
+programs. The Scala library includes support for common XML processing tasks.
+The key points of this chapter are:
+• XML literals <like>this</like> are of type NodeSeq.
+• You can embed Scala code inside XML literals.
+• The child property of a Node yields the child nodes.
+• The attributes property of a Node yields a MetaData object containing the node
+attributes.
+• The \ and \\ operators carry out XPath-like matches.
+• You can match node patterns with XML literals in case clauses.
+• Use the RuleTransformer with RewriteRule instances to transform descendants of a
+node.
+• The XML object interfaces with Java XML methods for loading and saving.
+• The ConstructingParser is an alternate parser that preserves comments and CDATA
+sections.
+***
+The XML support in Scala is brilliant because it makes it possible to slice and dice XML data
+easily and conveniently, in the REPL and in Scala programs. It is also flawed because of some
+unfortunate design decisions and lack of maintenance. It is difficult to remedy these issues
+because XML is so tightly integrated into Scala. A future version of Scala will likely abandon
+this tight integration and instead rely on string interpolation and third-party libraries. But for
+now, we can enjoy a uniquely powerful way of processing XML.
+***
+The API documentation for Scala XML is at www.scalalang.org/api/current/scala-xml.
