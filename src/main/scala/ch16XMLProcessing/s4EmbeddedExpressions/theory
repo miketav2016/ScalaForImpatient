@@ -1,0 +1,15 @@
+You can include blocks of Scala code inside XML literals to dynamically compute items.
+<ul><li>{items(0)}</li><li>{items(1)}</li></ul>
+Each block is evaluated, and its result is spliced into the XML tree.
+***
+Embedded strings do not get turned into Text nodes but into Atom[String] nodes. That is
+not quite the same—Text is a subclass of Atom[String]. It doesn’t matter when saving a
+document. But if you later do pattern matching on Text nodes, the match will fail. In that case,
+you should insert Text nodes instead of strings:
+<li>{Text("Another item")}</li>
+***
+To place an opening or closing brace into an XML literal, use two braces:
+<h1>The Natural Numbers {{1, 2, 3, ...}}</h1>
+This produces
+<h1>The Natural Numbers {1, 2, 3, ...}</h1>
+***

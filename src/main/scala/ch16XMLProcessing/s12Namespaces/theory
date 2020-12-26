@@ -1,0 +1,16 @@
+In XML, namespaces are used to avoid name clashes, similar to packages in Java or Scala. However,
+an XML namespace is a URI (and usually a URL), such as
+http://www.w3.org/1999/xhtml
+
+In Scala, each element has a scope property of type NamespaceBinding. The uri property of
+that class yields the namespace URI.
+
+
+If you want to mix elements from multiple namespaces, it is tedious to work with namespace URLs.
+An alternative is a namespace prefix.
+myXML1.XML
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:svg="http://www.w3.org/2000/svg">
+
+To find out the namespace of an element, look at the scope.uri value.
+If there are multiple namespaces, they are chained together through scope.parent links

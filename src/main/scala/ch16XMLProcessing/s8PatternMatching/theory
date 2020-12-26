@@ -1,0 +1,20 @@
+We can use XML literals in pattern matching expressions.
+node match {
+case <img/> => ...
+...
+}
+The first match succeeds if node is an img element with any attributes and no child elements.
+case <li>{child}</li> => child.text
+case <li>{_}</li> => ... // match a single child
+case <li>{_*}</li> => ...// match any number of items
+case <li>{Text(item)}</li> => item // match a text node
+case <li>{children @ _*}</li> => for (c <- children) yield c // bind a variable to a node sequence
+case n @ <img/> if (n.attributes("alt").text == "TODO") => ... // match an attribute
+Note the braces—they might remind you of the embedded code notation for XML literals. However,
+inside XML patterns, braces indicate code patterns, not code to be evaluated.
+***
+In such a match, children is a Seq[Node] and not a NodeSeq.
+***
+You can only use one node in the case clause.
+case <p>{_*}</p><br/> => ... // Not legal
+case <img alt="TODO"/> => ... // Not legal

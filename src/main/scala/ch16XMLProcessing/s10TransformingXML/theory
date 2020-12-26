@@ -1,0 +1,4 @@
+The XML library provides a RuleTransformer class that applies one or more RewriteRule instances to a node
+and its descendants.
+The transform method traverses the descendants of a node, applies all rules, and returns the
+transformed tree.

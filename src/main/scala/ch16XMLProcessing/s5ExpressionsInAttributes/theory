@@ -1,0 +1,16 @@
+compute attribute values with Scala expressions
+<img src="{makeURL(fileName)}"/>
+The embedded block can also yield a node sequence.
+<a id={new Atom(1)} ... />
+If the embedded block returns null or None, the attribute is not set.
+<img alt={if (description == "TODO") null else description} ... />
+
+<img alt={if (description == "TODO" || description == null) None
+else Some(Text(description))} ... />
+
+***
+It is a syntax error if the block yields something other than a String, a Seq[Node], or an
+Option[Seq[Node]]. This is inconsistent with blocks inside elements, where the result
+would be wrapped in an Atom. If you want an atom in an attribute value, you must construct it
+yourself.
+***

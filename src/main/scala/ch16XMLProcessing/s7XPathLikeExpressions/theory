@@ -1,0 +1,18 @@
+The NodeSeq class provides methods that resemble the / and // operators in XPath.
+Since // denotes comments and is therefore not a valid operator, Scala uses \ and \\ instead.
+The \\ operator locates descendants at any depth. For example,
+doc \\ "img"
+locates all img elements anywhere inside the doc.
+A string starting with @ locates attributes. For example,
+img \ "@alt"
+returns the value of the alt attribute of the given node, and
+doc \\ "@alt"
+locates all alt attributes of any elements inside doc.
+***
+There is no wildcard notation for attributes; img \ "@_" does not return all attributes.
+***
+Unlike XPath, you cannot use a single \ to extract attributes from multiple nodes. For example,
+doc \\ "img" \ "@src" will not work if the document contains more than one img
+element. Use doc \\ "img" \\ "@src" instead
+***
+The result of \ or \\ is a node sequence.

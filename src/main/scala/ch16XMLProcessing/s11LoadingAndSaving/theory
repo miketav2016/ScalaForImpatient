@@ -1,0 +1,63 @@
+To load an XML document from a file, call the loadFile method of the XML object:
+import scala.xml.XML
+val root = XML.loadFile("myfile.xml")
+
+Load from a java.io.InputStream, a java.io.Reader, or a URL:
+val root2 = XML.load(new FileInputStream("myfile.xml"))
+val root3 = XML.load(new InputStreamReader(
+new FileInputStream("myfile.xml"), "UTF-8"))
+val root4 = XML.load(new URL("http://horstmann.com/index.html"))
+
+***
+This parser suffers from a problem that is inherited from the Java library. It does not read
+DTDs from a local catalog. In particular, fetching an XHTML file can take a very long time, or
+fail altogether, as the parser retrieves the DTDs from the www.w3.org site.
+To use a local catalog, you need the CatalogResolver class that is available in the
+com.sun.org.apache.xml.internal.resolver.tools package of the JDK or,
+if you are squeamish about using a class outside the official API, in the Apache Commons
+Resolver project
+(http://xml.apache.org/commons/components/resolver/resolverarticle.html).
+Unfortunately, the XML object has no API for installing an entity resolver. Here is how you can
+do it through the back door:
+Click here to view code image
+val res = new CatalogResolver
+val doc = new factory.XMLLoader[Elem] {
+override def adapter = new parsing.NoBindingFactoryAdapter() {
+override def resolveEntity(publicId: String, systemId: String) = {
+res.resolveEntity(publicId, systemId)
+}
+}
+}.load(new URL("http://horstmann.com/index.html"))
+***
+The document is loaded using the standard SAX parser from the Java library. Unfortunately, the
+Document Type Definition (DTD) is not made available.
+If your document has a DTD and you need it (for example, when saving the document), it is available
+as doc.dtd.
+***
+By default, the ConstructingParser does not resolve entities but converts them into
+useless comments, such as
+
+<!-- unknown entity nbsp; -->
+If you happen to be reading an XHTML file, you can use the XhtmlParser subclass:
+
+val parser = new XhtmlParser(scala.io.Source.fromFile("myfile.html"))
+val doc = parser.initialize.document
+Otherwise, you need to add entities to the parser’s entity map. For example,
+
+parser.ent ++= List(
+"nbsp" -> ParsedEntityDecl("nbsp", IntDef("\u00A0")),
+"eacute" -> ParsedEntityDecl("eacute", IntDef("\u00E9")))
+***
+When saving an XML file, elements without content are not written with self-closing tags. For
+example:
+<img src="hamster.jpg"></img>
+If you prefer
+<img src="hamster.jpg"/>
+use
+
+val str = xml.Utility.toXML(node, minimizeTags = true)
+***
+If you want your XML code to line up prettily, use the PrettyPrinter class:
+
+val printer = new PrettyPrinter(width = 100, step = 4)
+val str = printer.formatNodes(nodeSeq)
