@@ -1,0 +1,1 @@
+Read an XHTML file and print all img elements that don’t have an alt attribute.

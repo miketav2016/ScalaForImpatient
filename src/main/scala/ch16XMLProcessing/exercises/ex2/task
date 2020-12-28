@@ -1,0 +1,8 @@
+What is the result of
+<ul>
+    <li>Opening bracket: [</li>
+    <li>Closing bracket: ]</li>
+    <li>Opening brace: {</li>
+    <li>Closing brace: }</li>
+</ul>
+How do you fix it? (used double {{ and }})
