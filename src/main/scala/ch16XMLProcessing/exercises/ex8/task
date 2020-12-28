@@ -1,0 +1,3 @@
+Write a function that takes a dl element and turns it into a Map[String, String]. This
+function should be the inverse of the function in the preceding exercise, provided all dt
+children are distinct.

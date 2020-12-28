@@ -1,0 +1,2 @@
+Transform an XHTML document by adding an alt="TODO" attribute to all img elements
+without an alt attribute, preserving everything else.
