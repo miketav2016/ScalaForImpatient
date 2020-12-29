@@ -1,0 +1,14 @@
+Type constraints give you another way of restricting types. There are three relationships that you can
+use:
+T =:= U     equals
+T <:< U     subtype
+T => U      convertible
+These constraints test whether T equals U, is a subtype of U, or is convertible to U. To use such a
+constraint, you add an “implicit evidence parameter”
+Type constraints let you supply a method in a generic class that can be used only under certain
+conditions.
+The orNull method can be useful when working with Java code where it is common to encode
+missing values as null. But it can’t be applied to value types such as Int that don’t have null as
+a valid value. Because orNull is implemented using a constraint Null <:< A, you can still
+instantiate Option[Int], as long as you stay away from orNull for those instances.
+Another use of type constraints is for improving type inference. C

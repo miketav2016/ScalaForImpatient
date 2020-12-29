@@ -1,0 +1,5 @@
+Classes and traits can have type parameters.
+In Scala, you use square brackets for type parameters.
+A class with one or more type parameters is generic.
+If you substitute actual types for the type parameters, you get an ordinary class
+class PairOrdinary[Int, String]

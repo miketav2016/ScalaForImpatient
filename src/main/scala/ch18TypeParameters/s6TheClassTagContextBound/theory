@@ -1,0 +1,11 @@
+To instantiate a generic Array[T], one needs a ClassTag[T] object. This is required for
+primitive type arrays to work correctly. For example, if T is Int, you want an int[] array in the
+virtual machine. If you write a generic function that constructs a generic array, you need to help it out
+and pass that class tag object.
+
+If you call makePair(4, 9), the compiler locates the implicit ClassTag[Int] and actually
+calls makePair(4, 9)(classTag). Then the new operator is translated to a call
+classTag.newArray, which in the case of a ClassTag[Int] constructs a primitive array
+int[2].
+Why all this complexity? In the virtual machine, generic types are erased. There is only a single
+makePair method that needs to work for all types T.

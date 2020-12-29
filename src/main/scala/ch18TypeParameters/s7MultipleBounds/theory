@@ -1,0 +1,8 @@
+A type variable can have both an upper and a lower bound. The syntax is this:
+T >: Lower <: Upper
+You can’t have multiple upper or lower bounds. However, you can still require that a type
+implements multiple traits, like this:
+
+T <: Comparable[T] with Serializable with Cloneable
+You can have more than one context bound:
+T : Ordering : ClassTag

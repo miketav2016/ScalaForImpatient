@@ -1,0 +1,4 @@
+Functions and methods can also have type parameters.
+If you need to, you can specify the type:
+
+val f = getMiddle[String] _ // The function, saved in f

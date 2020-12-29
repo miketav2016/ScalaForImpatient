@@ -1,0 +1,2 @@
+If an object does both, then the type should be left invariant. This is generally the case for mutable
+data structures. For example, in Scala, arrays are invariant.

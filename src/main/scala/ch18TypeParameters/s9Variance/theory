@@ -1,0 +1,30 @@
+functions are contravariant in their arguments and covariant in
+their results.Generally, it makes sense to use contravariance for the values an object consumes, and
+covariance for the values it produces. (Aide-mémoire: contravariance consumes.)
+
+
+If Student is a subclass of Person, can I call makeFriend with a Pair[Student]? By
+default, this is an error. Even though Student is a subtype of Person, there is no relationship
+between Pair[Student] and Pair[Person].
+
+class Pair[+T](val first: T, val second: T)
+
+The + means that the type is covariant in T—that is, it varies in the same direction. Since Student
+is a subtype of Person, a Pair[Student] is now a subtype of Pair[Person].
+
+It is also possible to have variance in the other direction. Consider a generic type Friend[T],
+which denotes someone who is willing to befriend anyone of type T.
+
+trait Friend[-T] {
+def befriend(someone: T)
+}
+
+
+You can have both variance types in a single generic type. For example, single-argument functions
+have the type Function1[-A, +R].
+def friends(students: Array[Student], find: Function1[Student, Person]) =
+// You can write the second parameter as find: Student => Person
+for (s <- students) yield find(s)
+def friends(students: Array[Student], find: Function1[Student, Person]) =
+// You can write the second parameter as find: Student => Person
+for (s <- students) yield find(s)

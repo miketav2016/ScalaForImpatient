@@ -1,0 +1,17 @@
+In Java, all generic types are invariant. However, you can vary the types where you use them, using
+wildcards.
+In Scala, you don’t need the wildcard for a covariant Pair class.
+Wildcards are “syntactic sugar” for existential types.
+
+
+***
+In certain complex situations, Scala wildcards are still a work in progress. For example, the
+following declaration does not work in Scala 2.12:
+
+def min[T <: Comparable[_ >: T]](p: Pair[T]) = ...
+
+A workaround is the following:
+
+type SuperComparable[T] = Comparable[_ >: T]
+def min[T <: SuperComparable[T]](p: Pair[T]) = ...
+***

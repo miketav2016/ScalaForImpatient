@@ -1,0 +1,14 @@
+Sometimes, you need to place restrictions on type variables. Consider a Pair type where both
+components have the same type.
+=> see PairS3
+
+T <: Comparable[T]  - it's means that Comparable[T] is a upper bound for T
+
+In general, the replacement type must be a supertype of the pair’s component type.
+R >: T  - it's means that R is a lower bound for T
+
+Now we can instantiate Pair[java.lang.String] but not Pair[java.net.URL], since
+String is a subtype of Comparable[String] but URL does not implement
+Comparable[URL].
+
+

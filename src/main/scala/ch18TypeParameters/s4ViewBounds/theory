@@ -1,0 +1,5 @@
+
+class Pair[T <% Comparable[T]]
+The <% relation means that T can be converted to a Comparable[T] through an implicit
+conversion.However, view bounds are on their way out in Scala.
+If you compile with the -future flag, you’ll get a warning when you use them.

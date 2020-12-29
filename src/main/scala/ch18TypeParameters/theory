@@ -1,0 +1,14 @@
+In Scala, you can use type parameters to implement classes and functions that work with multiple
+types. For example, an Array[T] stores elements of an arbitrary type T.
+The key points of this chapter are:
+• Classes, traits, methods, and functions can have type parameters.
+• Place the type parameters after the name, enclosed in square brackets.
+• Type bounds have the form T <: UpperBound, T >: LowerBound, T :
+ContextBound.
+• You can restrict a method with a type constraint such as (implicit ev: T <:<
+UpperBound).
+• Use +T (covariance) to indicate that a generic type’s subtype relationship is in the same
+direction as the parameter T, or -T (contravariance) to indicate the reverse direction.
+• Covariance is appropriate for parameters that denote outputs, such as elements in an immutable
+collection.
+• Contravariance is appropriate for parameters that denote inputs, such as function arguments.

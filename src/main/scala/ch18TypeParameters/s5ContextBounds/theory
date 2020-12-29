@@ -1,0 +1,8 @@
+A view bound T <% V requires the existence of an implicit conversion from T to V. A context
+bound has the form T : M, where M is another generic type. It requires that there is an “implicit
+value” of type M[T].
+For example,
+class Pair[T : Ordering]
+requires that there is an implicit value of type Ordering[T]. That implicit value can then be used
+in the methods of the class. When you declare a method that uses the implicit value, you have to add
+an “implicit parameter.”

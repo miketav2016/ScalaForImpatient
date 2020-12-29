@@ -1,0 +1,2 @@
+It is not possible to add type parameters to objects. Consider, for example, immutable lists. A list
+with element type T is either empty, or it is a node with a head of type T and a tail of type List[T]:
