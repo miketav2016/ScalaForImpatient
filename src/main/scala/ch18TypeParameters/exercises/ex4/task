@@ -1,0 +1,6 @@
+Why don’t we need a lower bound for the replaceFirst method in Section 18.3, “Bounds
+for Type Variables,” on page 266 if we want to replace the first component of a
+Pair[Person] with a Student?
+answer :
+the method will compile, but it will return a Pair[Any].
+def replaceFirst[R](newFirst: R) = new Pair(newFirst, second)

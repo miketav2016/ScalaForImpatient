@@ -1,0 +1,2 @@
+Write a generic method middle that returns the middle element from any Iterable[T].
+For example, middle("World") is 'r'.

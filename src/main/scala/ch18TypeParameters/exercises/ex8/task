@@ -1,0 +1,12 @@
+In Section 18.10, “Co- and Contravariant Positions,” on page 272, the replaceFirst
+method has a type bound. Why can’t you define an equivalent method on a mutable Pair[T]?
+
+def replaceFirst[R >: T](newFirst: R) { first = newFirst } // Error
+
+answer:
+Suppose we tried to declare a covariant mutable pair. This wouldn’t work. It would be like an array
+with two elements.
+you get an error complaining that the covariant type T occurs in a contravariant position in the setter
+first_=(value: T)
+Parameters are contravariant positions, and return types are covariant.
+
