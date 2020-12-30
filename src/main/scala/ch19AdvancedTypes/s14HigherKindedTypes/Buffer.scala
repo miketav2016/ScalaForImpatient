@@ -16,6 +16,8 @@ class Buffer[E : ClassTag] extends Iterable[E, Buffer] with Container[E] {
         def hasNext = i < length
         def next() = { i += 1; elems(i - 1) }
     }
+    def build[F : ClassTag]() = new Buffer[F]
+    override def build[F](): Buffer[F] = ???
     def +=(e: E) {
         if (length == capacity) {
             capacity = 2 * capacity
@@ -27,15 +29,15 @@ class Buffer[E : ClassTag] extends Iterable[E, Buffer] with Container[E] {
         length += 1
     }
 
-    override def build[F](): Buffer[F] = new Buffer[F]
 }
 class Range(val low: Int, val high: Int) extends Iterable[Int, Buffer] {
-    def iterator() = new Iterator[Int] {
+    def iterator(): Iterator[Int] = new Iterator[Int] {
         private var i = low
         def hasNext = i <= high
-        def next() = { i += 1; i - 1 }
+        def next(): Int = { i += 1; i - 1 }
     }
-    def build[F]() = new Buffer[F]
+//    def build[F]() = new Buffer[F]
+    override def build[F](): Buffer[F] = ???
 }
 trait Container[E] {
     def +=(e: E): Unit
