@@ -1,0 +1,16 @@
+A “structural type” is a specification of abstract methods, fields, and types that a conforming type
+should possess.
+You can call the appendLines method with an instance of any class that has an append method.
+This is more flexible than defining a Appendable trait, because you might not always be able to
+add that trait to the classes you are using.
+***
+ However, a reflective call is much more expensive than a regular method call.
+ For that reason, you should only use structural typing when
+ you model common behavior from classes that cannot share a trait.
+***
+Structural types are similar to “duck typing” in dynamically typed programming languages such
+as JavaScript or Ruby. In those languages, variables have no type. When you write
+obj.quack(), the runtime figures out whether the particular object to which obj refers at
+this point has a quack method. In other words, you don’t have to declare obj as a Duck as
+long as it walks and quacks like one.
+***

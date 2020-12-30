@@ -1,0 +1,10 @@
+A class or trait can define an abstract type that is made concrete in a subclass.
+
+Which is better? In Scala, the rule of thumb is:
+• Use type parameters when the types are supplied as the class is instantiated. For example, when
+you construct a HashMap[String, Int], you want control over the types.
+• Use abstract types when the types are expected to be supplied in a subclass. That is the case in
+our Reader example
+
+Nothing bad will happen if you specify type parameters as you form a subclass. But abstract types can
+work better when there are many type dependencies—you avoid long lists of type parameters

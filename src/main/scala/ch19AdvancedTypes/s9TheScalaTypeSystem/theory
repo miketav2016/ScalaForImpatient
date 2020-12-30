@@ -1,0 +1,15 @@
+The Scala language reference gives an exhaustive list of all Scala types, which is reproduced in
+ScalaTypes.png , with brief explanations for each type.
+This table shows the types that you, the programmer, can declare. There are a few types that the
+Scala compiler uses internally. For example, a method type is denoted by (T1, ..., Tn)T
+without a =>. You will occasionally see such types. For example, when you enter
+def square(x: Int) = x * x
+in the Scala REPL, it responds with
+square (x: Int)Int
+This is different from
+val triple = (x: Int) => 3 * x
+which yields
+triple: Int => Int
+You can turn a method into a function by appending a _. The type of
+square _
+is Int => Int.

@@ -1,0 +1,35 @@
+In Chapter 10, you saw how a trait can require that it is mixed into a class that extends another type.
+You define the trait with a self type declaration:
+this: Type =>
+Such a trait can only be mixed into a subclass of the given type. In the following example, the
+LoggedException trait can only be mixed into a class that extends Exception.
+
+If you want to require multiple types, use a compound type:
+this: T with U with ... =>
+***
+You can combine the self type syntax with the “alias for enclosing this” syntax that I briefly
+introduced in Chapter 5. If you give a name other than this to the variable, then it can be used
+in subtypes by that name. For example,
+Click here to view code image
+trait Group {
+outer: Network =>
+class Member {
+...
+}
+}
+The Group trait requires that it is added to a subtype of Network, and inside Member, you
+can refer to Group.this as outer.
+This syntax seems to have grown organically over time; unfortunately, it introduces a great deal
+of confusion for a small amount of added functionality.
+***
+Self types do not automatically inherit. If you define
+Click here to view code image
+trait ManagedException extends LoggedException { ... }
+you get an error that ManagedException doesn’t supply Exception. In this situation,
+you need to repeat the self type:
+
+trait ManagedException extends LoggedException {
+this: Exception =>
+...
+}
+***

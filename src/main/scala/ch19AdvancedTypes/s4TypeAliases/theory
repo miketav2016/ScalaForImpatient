@@ -1,0 +1,7 @@
+You can create a simple alias for a complicated type with the type keyword.
+!!!A type alias must be nested inside a class or object!!!
+However, in the REPL, you can declare a type at the top level, since everything in the REPL is
+implicitly contained in a top-level object.
+
+The type keyword is also used for abstract types that are made concrete in a subclass,
+see abstract class Reader.

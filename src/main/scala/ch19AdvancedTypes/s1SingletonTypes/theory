@@ -1,0 +1,8 @@
+Given any reference v, you can form the type v.type, which has two values: v and null. This
+sounds like a curious type, but it has a couple of useful applications.
+1. consider a method that returns this so you can chain method calls
+   see class Document,Book and object SingletonTypes
+2.You can also use a singleton type if you want to define a method that takes an object instance as
+  parameter. You may wonder why you would ever want to do that—after all, if there is just one
+  instance, the method could simply use it instead of making the caller pass it.
+  However, some people like to construct “fluent interfaces” that read like English o_O!

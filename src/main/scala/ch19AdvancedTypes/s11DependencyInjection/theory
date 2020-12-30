@@ -1,0 +1,19 @@
+Java has several tools that allow programmers to express dependencies through frameworks such as
+Spring or module systems such as OSGi. References to actual component implementations are “injected” when the
+application is assembled.
+(A particular implementation may want the real database
+ and console logging for running an experiment, or the mock database and file logging for running an
+ automated test script.
+ Usually, there is some dependency among the components. For example, the data access component
+ may require logging.)
+
+In Scala, you can achieve a simple form of dependency injection with traits and self types.
+
+It’s a bit awkward to use trait composition in this way. After all, an application isn’t an authenticator
+and a file logger. It has these components, and it is more natural to use instance variables for the
+components than to glue them all into one huge type. A better design is given by the cake pattern. In
+this pattern, you supply a component trait for each service that contains
+• Any dependent components, expressed as self types
+• A trait describing the service interface
+• An abstract val that will be instantiated with an instance of the service
+• Optionally, implementations of the service interface

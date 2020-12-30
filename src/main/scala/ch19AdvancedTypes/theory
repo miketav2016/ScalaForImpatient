@@ -1,0 +1,12 @@
+In Chapter 5, you saw that a nested class belongs to the object in which it is nested.
+see class Network
+Each Network instance has its own Member class(see object TypeProjections).
+If you don’t want this restriction, you should simply move the Member type outside the Network
+class. A good place would be the Network companion object.
+If what you want is fine-grained classes, with an occasional loose interpretation, use a type
+projection Network#Member, which means “a Member of any Network.”
+
+***
+A type projection such as Network#Member is not considered a “path,” and you cannot
+import it. We discuss paths in the next section.
+***

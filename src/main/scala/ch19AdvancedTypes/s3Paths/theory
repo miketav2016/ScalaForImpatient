@@ -1,0 +1,16 @@
+Each component of the path before the final type must be “stable,” that is, it must specify a single,
+definite scope. Each such component is one of the following:
+• A package
+• An object
+• A val
+• this, super, super[S], C.this, C.super, or C.super[S]
+A path component can’t be a class because, as you have seen, a nested class isn’t a single type, but it
+gives rise to a separate type for each instance.
+Moreover, a path element can’t be a var.
+***
+Internally, the compiler translates all nested type expressions a.b.c.T to type projections
+a.b.c.type#T. For example, chatter.Member becomes
+chatter.type#Member—any Member inside the singleton chatter.type. That is not
+something you generally need to worry about. However, sometimes you will see an error
+message with a type of the form a.b.c.type#T. Just translate it back to a.b.c.T.
+***

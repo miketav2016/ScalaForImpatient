@@ -1,0 +1,17 @@
+An infix type is a type with two type parameters, written in “infix” syntax, with the type name
+between the type parameters.
+String Map Int //not work
+instead of
+Map[String, Int]
+
+type ×[A, B] = (A, B)
+Then you can write String × Int instead of (String, Int).
+
+All infix type operators have the same precedence. As with regular operators, they are leftassociative unless their names end in :. For example,
+String × Int × Int
+means ((String, Int), Int). This type is similar to, but not the same, as (String, Int,
+Int), which could not be written in infix form in Scala.
+***
+An infix type name can be any sequence of operator characters, except for a single *. This rule
+avoids confusion with variable argument declarations T*.
+***

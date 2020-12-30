@@ -1,0 +1,5 @@
+It is a challenge to model families of types that vary together, share common code, and preserve type
+safety. For example, consider event handling in client-side Java. There are different types of events
+(such as ActionEvent, ChangeEvent, and so on). Each type has a separate listener interface
+(ActionListener, ChangeListener, and so on). This is an example of “family
+polymorphism.”

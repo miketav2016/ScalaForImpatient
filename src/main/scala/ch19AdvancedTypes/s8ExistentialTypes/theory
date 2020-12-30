@@ -1,0 +1,13 @@
+Existential types were added to Scala for compatibility with Java wildcards.
+An existential type is a type expression followed by forSome { ... },
+where the braces contain type and val declarations.
+
+The forSome notation allows for more complex relationships than wildcards can express, for
+example:
+
+Map[T, U] forSome { type T; type U <: T }
+***
+To use existential types without warnings, you must import
+scala.language.existentials or use the compiler option -
+language:existentials.
+***

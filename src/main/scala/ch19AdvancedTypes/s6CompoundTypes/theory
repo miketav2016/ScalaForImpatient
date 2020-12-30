@@ -1,0 +1,17 @@
+A compound type has the form
+T1 with T2 with T3 ...
+where T1, T2, T3, and so on are types. In order to belong to the compound type, a value must belong to
+all of the individual types. Therefore, such a type is also called an intersection type.
+
+You can add a structural type declaration to a simple or compound type. For example,
+Shape with Serializable { def contains(p: Point): Boolean }
+An instance of this type must be a subtype of Shape and Serializable, and it must have a
+contains method with a Point parameter.
+Technically, the structural type
+{ def append(str: String): Any }
+is an abbreviation for
+AnyRef { def append(str: String): Any }
+and the compound type
+Shape with Serializable
+is a shortcut for
+Shape with Serializable {}

@@ -1,0 +1,10 @@
+The key points of this chapter are:
+• Singleton types are useful for method chaining and methods with object parameters.
+• A type projection includes inner class instances for all objects of an outer class.
+• A type alias gives a short name for a type.
+• Structural types are equivalent to “duck typing.”
+• Existential types provide the formalism for wildcard parameters of generic types.
+• Use a self type declaration to indicate that a trait requires another type.
+• The “cake pattern” uses self types to implement a dependency injection mechanism.
+• An abstract type must be made concrete in a subclass.
+• A higher-kinded type has a type parameter that is itself a parameterized type.

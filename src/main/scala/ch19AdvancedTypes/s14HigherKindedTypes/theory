@@ -1,0 +1,10 @@
+The generic type List depends on a type T and produces a type. For example, given the type Int,
+you get the type List[Int]. For that reason, a generic type such as List is sometimes called a
+type constructor. In Scala, you can go up another level and define types that depend on types that
+depend on types.
+
+***
+To use higher-kinded types without a warning, add the statement import
+scala.language.higherKinds or use the compiler option -
+language:higherKinds.
+***
