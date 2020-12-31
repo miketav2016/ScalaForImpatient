@@ -1,0 +1,3 @@
+Provide a fluent interface for the Bug class of the preceding exercise, so that one can write.
+
+bugsy move 4 and show and then move 6 and show turn around move 5 and show

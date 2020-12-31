@@ -1,10 +1,12 @@
 package ch19AdvancedTypes.exercises.ex1
 
-class Bug {
+import ch19AdvancedTypes.exercises.ex2.BugFluent
+
+class Bug extends BugFluent{
   private var position = 0
   private var direct = true
 
-  def move(n: Int): Bug = {
+  def move(n: Int): this.type = {
     if (direct)
       position += n
     else
@@ -12,15 +14,13 @@ class Bug {
     this
   }
 
-  def show(): Bug = {
+  def show(): this.type = {
     print(position + " ")
     this
   }
 
-  def turn(): Bug = {
+  def turn(): this.type = {
     direct = !direct
     this
   }
-
-
 }
