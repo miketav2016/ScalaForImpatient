@@ -1,0 +1,3 @@
+Complete the fluent interface in Section 19.1, “Singleton Types,” on page 280 so that one can call
+
+book set Title to "Scala for the Impatient" set Author to "Cay Horstmann"

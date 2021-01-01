@@ -1,0 +1,3 @@
+Implement the equals method for the Member class that is nested inside the Network class
+in Section 19.2, “Type Projections,” on page 281. For two members to be equal, they need to be
+in the same network.
