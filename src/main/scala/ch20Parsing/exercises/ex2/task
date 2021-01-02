@@ -1,0 +1,3 @@
+Add a ^ operator to the arithmetic expression evaluator. As in mathematics, ^ should have a
+higher precedence than multiplication, and it should be right-associative. That is, 4^2^3
+should be 4^(2^3), or 65536.
