@@ -1,0 +1,3 @@
+Technically, a Parser[T] is a function with one argument, of type Reader[Elem], and a return
+value of type ParseResult[T]. In this section, we will have a closer look at these types.
+The type Elem is an abstract type of the Parsers trait

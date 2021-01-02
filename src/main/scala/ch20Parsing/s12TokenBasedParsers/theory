@@ -1,0 +1,24 @@
+Token-based parsers use a Reader[Token] instead of a Reader[Char]. The Token type is
+defined in the trait scala.util.parsing.combinator.token.Tokens. The
+StdTokens subtrait defines four types of tokens that one commonly finds when parsing a
+programming language:
+• Identifier
+• Keyword
+• NumericLit
+• StringLit
+The StandardTokenParsers class provides a parser that produces these tokens. Identifiers
+consist of letters, digits, or _ but don’t start with a digit
+
+The StandardTokenParsers class provides a parser that produces these tokens. Identifiers
+consist of letters, digits, or _ but don’t start with a digit.
+Numeric literals are sequences of digits. String literals are enclosed in "..." or '...', with no
+escapes. Comments, enclosed in /* ... */ or from // to the end of the line, are considered
+whitespace.
+
+When you extend this parser, add any reserved words and special tokens to the
+lexical.reserved and lexical.delimiters sets:
+class MyLanguageParser extends StandardTokenParser {
+lexical.reserved += ("auto", "break", "case", "char", "const", ...)
+lexical.delimiters += ("=", "<", "<=", ">", ">=", "==", "!=", ...)
+...
+}

@@ -1,0 +1,10 @@
+The tokens are required for parsing, but they can often be discarded after they have been matched.
+The ~> and <~ operators are used to match and discard a token. For example, the result of "*" ~>
+factor is just the result of factor, not a value of the form "*" ~ f.
+***
+You need to be careful when using multiple ~, ~>, and <~ in the same expression. <~ has a
+lower precedence than ~ and ~>. Consider, for example:
+"if" ~> "(" ~> expr <~ ")" ~ expr
+Unfortunately, this doesn’t just discard ")", but the subexpression ")" ~ expr. The
+remedy is to use parentheses: "if" ~> "(" ~> (expr <~ ")") ~ expr.
+***

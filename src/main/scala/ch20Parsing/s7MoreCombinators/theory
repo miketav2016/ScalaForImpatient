@@ -1,0 +1,7 @@
+def numberList = number ~ rep("," ~> number)
+=>
+def numberList = repsep(number, ",")
+
+The log combinator can help debug a grammar. Replace a parser p with log(p)(str), and you
+get a printout whenever p is called. For example,
+def factor: Parser[Int] = log(number)("number") ^^ { _.toInt } | ...

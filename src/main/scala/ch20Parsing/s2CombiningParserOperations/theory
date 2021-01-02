@@ -1,0 +1,7 @@
+To use the Scala parsing library, provide a class that extends the Parsers trait and defines parsing
+operations that are combined from primitive operations, such as
+• Matching a token
+• Choosing between two operations (|)
+• Performing two operations in sequence (~)
+• Repeating an operation (rep)
+• Optionally performing an operation (opt)

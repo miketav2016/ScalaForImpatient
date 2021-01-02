@@ -1,0 +1,6 @@
+Whenever an alternative p | q is parsed and p fails, the parser tries q on the same input. This is
+called backtracking. Backtracking also happens when there is a failure in an opt or rep. Clearly,
+backtracking can be inefficient.
+You can then use the ~! operator instead of ~ to express that there is no need to backtrack.
+When p ~! q is evaluated and q fails, no other alternatives are tried in an enclosing |, opt, or
+rep.

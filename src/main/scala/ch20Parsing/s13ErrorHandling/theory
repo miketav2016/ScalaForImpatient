@@ -1,0 +1,5 @@
+The parser generates an error message that describes the position at which the parser was unable to
+continue. If there were several failure points, the one that was visited last is reported.
+You may want to keep error reporting in mind when you order alternatives.
+The failure combinator only reports an error when it is visited. It does not change the error
+messages that another combinator reports.

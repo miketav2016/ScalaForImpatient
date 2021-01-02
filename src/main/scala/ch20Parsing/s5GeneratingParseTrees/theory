@@ -1,0 +1,11 @@
+If a parser function calls itself without first consuming some input, the recursion will never stop.
+Consider this function that is supposed to consume any sequence of ones:
+
+def ones: Parser[Any] = ones ~ "1" | "1"
+Such a function is called left-recursive. To avoid the recursion, you can reformulate the grammar.
+Here are two alternatives:
+
+def ones: Parser[Any] = "1" ~ ones | "1"
+or
+
+def ones: Parser[Any] = rep1("1")

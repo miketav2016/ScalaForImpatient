@@ -1,0 +1,15 @@
+There is no particular significance to the ^^ symbol. It conveniently has lower precedence than
+~ but higher precedence than |.
+
+***
+If you turn off the warning against postfix operators, you can write p? instead of opt(p) and
+p* instead of rep(p):
+
+def expr: Parser[Any] = term ~ (("+" | "-") ~ expr)?
+def term: Parser[Any] = factor ~ ("*" ~ factor)*
+It seems a good idea to use these familiar operators, but they conflict with the ^^ operator.
+You’ll have to add another set of parentheses, such as
+
+def term: Parser[Any] = factor ~ (("*" ~ factor)*) ^^ { ... }
+For that reason, I prefer opt and rep.
+***

@@ -1,0 +1,19 @@
+A grammar is a set of rules for producing all strings that follow a particular format. For
+example, we can say that an arithmetic expression is given by the following rules:
+• Each whole number is an arithmetic expression.
+• + - * are operators.
+• If left and right are arithmetic expressions and op is an operator, then left op right is an
+arithmetic expression.
+• If expr is an arithmetic expression, then ( expr ) is an arithmetic expression.
+A grammar is usually written in a notation called Backus-Naur Form (BNF). Here is the BNF for our
+expression language:
+
+op ::= "+" | "-" | "*"
+expr ::= number | expr op expr | "(" expr ")"
+Here, number is undefined. We could define it as
+
+digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+number ::= digit | digit number
+
+The most often used “extended Backus-Naur form,” or EBNF, allows specifying optional elements
+and repetition.

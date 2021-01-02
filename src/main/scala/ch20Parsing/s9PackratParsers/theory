@@ -1,0 +1,19 @@
+A packrat parser uses an efficient parsing algorithm that caches previous parse results. This has two
+advantages:
+• Parse time is guaranteed to be proportional to the length of the input.
+• The parser can accept left-recursive grammars.
+In order to use packrat parsing in Scala, follow these steps:
+1. Mix the PackratParsers trait into your parser.
+2. Use val or lazy val, not def, for each parser function. This is important because the
+parser caches these values, and it relies on them being identical. (A def would return a
+different value each time it is called.)
+3. Have each parser function return PackratParser[T] instead of Parser[T].
+4. Use a PackratReader and supply a parseAll method (which is annoyingly missing from
+the PackratParsers trait).
+For example,
+
+class OnesPackratParser extends RegexParsers with PackratParsers {
+lazy val ones: PackratParser[Any] = ones ~ "1" | "1"
+def parseAll[T](p: Parser[T], input: String) =
+phrase(p)(new PackratReader(new CharSequenceReader(input)))
+}

@@ -1,0 +1,8 @@
+The RegexParsers trait, which we have used in all examples up to this point, provides two
+implicit conversions for defining parsers:
+• literal makes a Parser[String] from a literal string (such as "+").
+• regex makes a Parser[String] from a regular expression (such as "[0-9]".r).
+
+The JavaTokenParsers trait extends RegexParsers and specifies five tokens, shown in
+png. None of them correspond exactly to their Java forms, which makes that trait of limited
+utility.
