@@ -1,0 +1,13 @@
+Implicit conversions and implicit parameters are Scala’s power tools that do useful work behind the
+scenes.With implicits, you can provide elegant libraries that hide tedious details from library users.
+
+The key points of this chapter are:
+• Implicit conversions are used to convert between types.
+• You must import implicit conversions so that they are in scope.
+• An implicit parameter list requests objects of a given type. They can be obtained from implicit
+objects that are in scope, or from the companion object of the desired type.
+• If an implicit parameter is a single-argument function, it is also used as an implicit conversion.
+• A context bound of a type parameter requires the existence of an implicit object of the given
+type.
+• If it is possible to locate an implicit object, this can serve as evidence that a type conversion is
+valid.

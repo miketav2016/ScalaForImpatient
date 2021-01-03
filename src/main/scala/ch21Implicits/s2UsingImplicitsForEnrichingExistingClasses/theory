@@ -1,0 +1,20 @@
+Did you ever wish that a class had a method its creator failed to provide?
+For example, wouldn’t it be nice if the java.io.File class had a read method for reading a file:
+val contents = new File("README").read
+As a Java programmer, your only recourse is to petition Oracle Corporation to add that method. Good
+luck!
+In Scala, you can define an enriched class that provides what you want:
+Click here to view code image
+class RichFile(val from: File) {
+def read = Source.fromFile(from.getPath).mkString
+}
+
+An implicit class must have a primary constructor with exactly one argument. That constructor
+becomes the implicit conversion function.
+In that case, no RichFile objects are created. A call file.read is directly compiled into a
+static method call RichFile$.read$extension(file).
+***
+An implicit class cannot be a top-level class. You can place it inside the class that uses the
+type conversion, or inside another object or class that you import, as explained in the next
+section.
+***

@@ -1,0 +1,16 @@
+A type parameter can have a context bound of the form T : M, where M is another generic type. It
+requires that there is an implicit value of type M[T] in scope.
+
+The implicitly function is defined as follows in Predef.scala:
+Click here to view code image
+def implicitly[T](implicit e: T) = e
+// For summoning implicit values from the nether world
+
+
+These are just minor variations; the important point is that you can instantiate Pair[T] whenever
+there is an implicit value of type Ordering[T]. For example, if you want a Pair[Point],
+arrange for an implicit Ordering[Point] value:
+Click here to view code image
+implicit object PointOrdering extends Ordering[Point] {
+def compare(a: Point, b: Point) = ...
+}

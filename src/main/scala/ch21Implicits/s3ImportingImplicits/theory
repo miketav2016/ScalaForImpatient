@@ -1,0 +1,3 @@
+Scala will consider the following implicit conversion functions:
+1. Implicit functions or classes in the companion object of the source or target type
+2. Implicit functions or classes that are in scope

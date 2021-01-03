@@ -1,0 +1,8 @@
+ev an “evidence object”
+***
+Tip
+To test whether a generic implicit object exists, you can call the implicitly function in the
+REPL. For example, type implicitly[String <:< AnyRef] in the REPL, and you get
+a result (which happens to be a function). But implicitly[AnyRef <:< String] fails
+with an error message.
+***

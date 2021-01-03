@@ -1,0 +1,9 @@
+A function or method can have a parameter list that is marked implicit. In that case, the compiler
+will look for default values to supply with the function call.
+***
+There can only be one implicit value for a given data type. Thus, it is not a good idea to use
+implicit parameters of common types. For example,
+Click here to view code image
+def quote(what: String)(implicit left: String, right: String) // No!
+would not work—one could not supply two different strings.
+***

@@ -1,0 +1,4 @@
+The @implicitNotFound annotation raises an error message when the compiler cannot construct
+an implicit parameter of the annotated type. The intent is to give a useful error message to the
+programmer. For example, the <:< class!!!
+firstLast[String, List[Int]](List(1, 2, 3))

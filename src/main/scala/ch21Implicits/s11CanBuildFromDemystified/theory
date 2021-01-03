@@ -1,0 +1,8 @@
+In the Scala library, map is actually defined in the TraversableLike[A, Repr] trait.
+That way, the more commonly used Iterable trait doesn’t need to carry with it the Repr
+type parameter.
+
+
+As you just saw, the implicit CanBuildFrom[Repr, B, That] parameter locates a factory
+object that can produce a builder for the target collection. The builder factory is defined as implicit in
+the companion object of Repr.

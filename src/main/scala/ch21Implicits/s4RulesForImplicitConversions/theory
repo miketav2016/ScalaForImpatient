@@ -1,0 +1,33 @@
+Implicit conversions are considered in three distinct situations:
+• If the type of an expression differs from the expected type:
+3 * Fraction(4, 5) // Calls fraction2Double
+The Int class doesn’t have a method *(Fraction), but it has a method *(Double).
+• If an object accesses a nonexistent member:
+3.den // Calls int2Fraction
+If an object invokes a method whose parameters don’t match the given arguments:
+Fraction(4, 5) * 3
+// Calls int2Fraction
+
+On the other hand, there are three situations when an implicit conversion is not attempted:
+• No implicit conversion is used if the code compiles without it. For example, if a * b
+compiles, the compiler won’t try a * convert(b) or convert(a) * b.
+• The compiler will never attempt multiple conversions, such as convert1(
+convert2(a)) * b.
+• Ambiguous conversions are an error. For example, if both convert1(a) * b and
+convert2(a) * b are valid, the compiler will report an error.
+***
+It is not an ambiguity that
+3 * Fraction(4, 5)
+could be either
+Click here to view code image
+3 * fraction2Double(Fraction(4, 5))
+or
+int2Fraction(3) * Fraction(4, 5)
+The first conversion wins over the second, since it does not require modification of the object
+to which the * method is applied.
+***
+If you want to find out which implicit conversion the compiler uses, compile your program as
+Click here to view code image
+scalac -Xprint:typer MyProg.scala
+You will see the source after implicit conversions have been added.
+***

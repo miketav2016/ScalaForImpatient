@@ -1,0 +1,11 @@
+An implicit conversion function is a function with a single parameter that is declared with the
+implicit keyword.(As the name suggests, such a function is automatically applied to convert
+values from one type to another.)
+the source2target convention.
+***
+Even though Scala gives you tools to fine-tune implicit conversions, the language designers
+realize that implicit conversions are potentially problematic. To avoid a warning when using
+implicit functions, add the statement import
+scala.language.implicitConversions or the compiler option -
+language:implicitConversions.
+***
