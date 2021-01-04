@@ -1,0 +1,4 @@
+Provide the machinery that is needed to compute
+smaller(Fraction(1, 7), Fraction(2, 9))
+with the Fraction class of Chapter 11. Supply an implicit class RichFraction that
+extends Ordered[Fraction].

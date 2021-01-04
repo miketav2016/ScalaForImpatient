@@ -1,0 +1,3 @@
+Make String a member of the NumberLike type class in Section 21.8, “Type Classes,” on
+page 331. The divBy method should retain every nth letter, so that average("Hello",
+"World") becomes "Hlool".

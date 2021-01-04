@@ -1,0 +1,2 @@
+How does -> work? That is, how can "Hello" -> 42 and 42 -> "Hello" be pairs
+("Hello", 42) and (42, "Hello")? Hint: Predef.ArrowAssoc

@@ -1,0 +1,2 @@
+Define a ! operator that computes the factorial of an integer. For example, 5.! is 120. Use an
+implicit class

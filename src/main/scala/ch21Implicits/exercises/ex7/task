@@ -1,0 +1,6 @@
+Continue the previous exercise, comparing two points according to their distance to the origin.
+How can you switch between the two orderings?
+answer: we can used different import like:
+import ch21Implicits.exercises.ex6.MyObject.LexicographicPoint
+or
+import ch21Implicits.exercises.ex7.MyObject.LexicographicPoint

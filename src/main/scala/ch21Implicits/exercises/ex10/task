@@ -1,0 +1,1 @@
+. Generalize the average method in Section 21.8, “Type Classes,” on page 331 to a Seq[T].

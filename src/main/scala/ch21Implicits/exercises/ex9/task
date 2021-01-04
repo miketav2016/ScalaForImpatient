@@ -1,0 +1,8 @@
+Explain why Ordering is a type class and why Ordered is not.
+
+answer:
+A trait such as Ordering is called a type class. A type class defines some behavior, and a type can
+join the class by providing that behavior.
+The standard Scala library provides useful type classes, such as Equiv, Ordering, Numeric,
+Fractional, Hashing, IsTraversableOnce, IsTraversableLike.
+Ordered is not in standard.

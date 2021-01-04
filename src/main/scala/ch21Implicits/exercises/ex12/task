@@ -1,0 +1,7 @@
+Look up the =:= object in Predef.scala. Explain how it works.
+answer:
+package scala
+typeConstraints.scala
+
+@implicitNotFound(msg = "Cannot prove that ${From} =:= ${To}.")
+sealed abstract class =:=[From, To] extends (From <:< To) with Serializable {???}

@@ -1,0 +1,2 @@
+The result of "abc".map(_.toUpper) is a String, but the result of
+"abc".map(_.toInt) is a Vector. Find out why
